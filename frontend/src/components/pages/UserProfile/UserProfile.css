@@ -1,0 +1,203 @@
+
+.user-profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.user-profile-info img {
+    margin-bottom: 10px;
+}
+
+.user-profile-img {
+    max-width: 100px;
+}
+
+.user-profile-info ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-profile-info ul li {
+    color: #8c8c8c;
+    list-style-type: none;
+}
+
+.user-comments-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile-nickname {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.user-comments-container p {
+    padding: 15px;
+    color: #8c8c8c;
+}
+
+.user-profile-comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile-comments h3 {
+    color: #ffffff;
+    padding: 5px;
+}
+
+.user-profile-comments h4 {
+    color: #dcdcdc;
+}
+
+@media (min-width: 768px) {
+
+    .user-profile {
+        display: flex;
+    }
+
+
+    .user-profile-info {
+        padding: 10px;
+        border-bottom: none;
+    }
+
+    .user-profile-info img {
+        margin-bottom: 10px;
+    }
+
+    .user-profile-img {
+        max-width: 100px;
+    }
+
+    .user-profile-info ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .user-profile-info ul li {
+        color: #8c8c8c;
+        list-style-type: none;
+    }
+
+    .user-comments-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-profile-nickname {
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+
+    .user-comments-container p {
+        padding: 15px;
+        color: #8c8c8c;
+    }
+
+    .user-profile-comments {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-profile-comments h3 {
+        color: #ffffff;
+        padding: 5px;
+    }
+
+    .user-profile-comments h4 {
+        color: #dcdcdc;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+
+    .user-profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        border: 1px solid #ffffff;
+    }
+
+
+    .user-profile-info {
+        padding: 10px;
+        border-bottom: none;
+    }
+
+    .user-profile-info img {
+        margin-bottom: 10px;
+    }
+
+    .user-profile-img {
+        max-width: 100px;
+    }
+
+    .user-profile-info ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .user-profile-info ul li {
+        color: #8c8c8c;
+        list-style-type: none;
+    }
+
+    .user-comments-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-profile-nickname {
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+
+    .user-comments-container p {
+        padding: 10px;
+        color: #8c8c8c;
+    }
+
+    .user-profile-comments {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid #ffffff;
+    }
+
+    .user-profile-comments h3 {
+        color: #ffffff;
+        padding: 5px;
+    }
+
+    .user-profile-comments h4 {
+        color: #dcdcdc;
+    }
+
+}
+

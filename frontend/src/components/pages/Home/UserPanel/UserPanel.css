@@ -1,0 +1,15 @@
+.user-panel-logged {
+    display: flex;
+    justify-content: center;
+    background-color: #5e5b56;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.user-panel-logged span {
+    color: #53a48a;
+}
+
+.user-panel-logged a {
+    color: #53a48a;
+}
