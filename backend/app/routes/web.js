@@ -25,6 +25,7 @@ router.post ('/admin/edit-thread/:id', EditThread.editThread)
 router.post ('/admin/edit-thread/:id', EditThread.editThread)
 router.post ('/admin/reported-comments/delete/:id', ReportedComment.deleteUserReport)
 router.get ('/admin/reported-comments/', ReportedComment.sendReportedComments)
+router.get ('/admin/reports-history/', ReportedComment.reportsHistory)
 
 
 //homepage

@@ -1,6 +1,6 @@
 import react, {useEffect, useState} from "react"
 import React from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 
 export const CommentsReports = ({user}) => {
@@ -61,20 +61,24 @@ export const CommentsReports = ({user}) => {
 
     return (
         <>
+
+            <Link to={'/admin/reports-history/'}>Reports History</Link>
+
             {reportData && reportData.map(report => (
 
                 <div key={report._id}>
                     <p>{report._id}</p>
-                    <p>{report.author.username}</p>
+                    <p>{report.comment.author.username} username ze zreportowanego kommenta</p>
+                    <p>{report.comment.description} tresc komentarza</p>
+                    <p>{report.comment.thread.title} tytuł tematu w którym jest comment</p>
+                    <Link to={`/article-view/${report.comment.thread._id}`} >{report.comment.thread.title}</Link>
+                    <p>{report.comment.thread._id} ID tematu w ktorym jest zreportowany comment</p>
+                    <p>{report.author.username} username, który zreportował</p>
                     <p>{report.reason}</p>
                     <button onClick={() => deleteReportUser(report._id, user.user._id)}>send</button>
                 </div>
 
             ))}
-
-            <p>test</p>
-
-
 
         </>
     );
