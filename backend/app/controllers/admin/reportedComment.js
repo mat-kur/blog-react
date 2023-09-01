@@ -72,6 +72,10 @@ class ReportedComment {
 
     }
 
+    async approveReport (req, res) {
+        console.log(req.body)
+    }
+
 }
 
 module.exports = new ReportedComment()
