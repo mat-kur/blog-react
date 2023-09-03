@@ -68,7 +68,7 @@ export const CommentsReports = ({user}) => {
         }));
     };
 
-    const acceptUserReport = async (commentID, userCommentID, userAdminID) => {
+    const acceptUserReport = async (commentID, userCommentID, userAdminID, reportID) => {
         //  muszę na backend wysłać: id komentarza, który ma dostać reporta. id usera, który ma dostać report,
 
         try {
@@ -78,7 +78,9 @@ export const CommentsReports = ({user}) => {
                 body: JSON.stringify({
                     commentID,
                     userCommentID,
-                    userAdminID
+                    userAdminID,
+                    approveDes,
+                    reportID
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -123,7 +125,7 @@ export const CommentsReports = ({user}) => {
                         <textarea name="reply"
                                   value={approveDes}
                                   onChange={e => setApproveDes(e.target.value)}></textarea>
-                                <button onClick={() => acceptUserReport(report.comment._id, report.comment.author._id, user.user._id)}>send</button>
+                                <button onClick={() => acceptUserReport(report.comment._id, report.comment.author._id, user.user._id, report._id)}>send</button>
                             </form>
                         </div>
                     )}

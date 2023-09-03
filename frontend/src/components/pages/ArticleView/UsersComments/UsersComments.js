@@ -136,6 +136,13 @@ export const UsersComments = props => {
                                       className="comments-author"> {userComment.author.username}</Link>
                                 <p className="comments-time">{userComment.date}</p>
                                 <p className="comments-description">{userComment.description}</p>
+                                    {userComment.reportContent &&
+                                        <div key={userComment._id}>
+                                            <p>{userComment.reportContent}</p>
+                                            <p>{userComment.reportApprover?.username}</p>
+                                        </div>
+
+                                    }
                                 <div className="comments-buttons">
 
                                     {user && user.user &&

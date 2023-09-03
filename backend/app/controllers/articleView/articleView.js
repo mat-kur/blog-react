@@ -11,21 +11,18 @@ class ArticleView {
         try {
             const totalCount = await Comment.countDocuments({ thread: threadId });
             let totalPages = Math.ceil(totalCount / perPage);
-
-            // if (totalCount % perPage > 0) {
-            //     totalPages += 1;
-            // }
-
             let data1;
 
             if (currentPage === 1) {
                 data1 = await Comment.find({thread: threadId})
                     .populate('author', 'username avatar')
+                    .populate('reportApprover', 'username avatar')
                     .sort({ _id: -1 })
                     .limit(perPage);
             } else {
                 data1 = await Comment.find({thread: threadId})
                     .populate('author', 'username avatar')
+                    .populate('reportApprover', 'username avatar')
                     .sort({ _id: -1 })
                     .skip((currentPage - 1) * perPage)
                     .limit(perPage);
@@ -38,7 +35,9 @@ class ArticleView {
                     path: 'comments',
                     populate: [
                         { path: 'author', model: 'User', select: '-password -email' },
+                        { path: 'reportApprover', model: 'User', select: '-password -email' },
                     ],
+
                 })
                 .populate({
                     path: 'likedBy',

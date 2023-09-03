@@ -51,6 +51,11 @@ const userSchema = new Schema({
         type: String,
         default: 'default-avatar.jpg'
     }
+    ,
+    warning: {
+        type: Number,
+        default: 0,
+    }
 
 });
 
