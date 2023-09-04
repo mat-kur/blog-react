@@ -50,6 +50,7 @@ class ReportedComment {
 
             res.json(reportedComments)
         } catch (e) {
+            console.error("Error in sendReportedComments:", e)
             this.sendResponse(res, 500, 'Internal Server Error');
         }
 
@@ -71,7 +72,8 @@ class ReportedComment {
                 report.deleteDate = getFullDate()
                 await report.save()
             } catch (e) {
-                console.log(e)
+                console.error("Error in deleteUserReport:", e)
+                this.sendResponse(res, 500, 'Internal Server Error');
             }
         } else {
             this.sendResponse(res, 403, 'Forbidden');
@@ -95,6 +97,7 @@ class ReportedComment {
                 res.json(filteredReports)
 
             } catch (e) {
+                console.error("Error in reportsHistory:", e)
                 this.sendResponse(res, 500, 'Internal Server Error');
             }
 
@@ -109,6 +112,7 @@ class ReportedComment {
                 res.json(filteredReports)
 
             } catch (e) {
+                console.error("Error in reportsHistory:", e)
                 this.sendResponse(res, 500, 'Internal Server Error');
             }
         } else {
@@ -121,6 +125,7 @@ class ReportedComment {
                 if (!reportedComments) this.sendResponse(res, 404, 'Document not found');
                 res.json(reportedComments)
             } catch (e) {
+                console.error("Error in reportsHistory:", e)
                 this.sendResponse(res, 500, 'Internal Server Error');
             }
         }
@@ -154,7 +159,7 @@ class ReportedComment {
 
                 await Promise.all([report.save(), user.save(), comment.save()]);
             } catch (e) {
-                console.log(e)
+                console.error("Error in approveReport:", e)
                 this.sendResponse(res, 500, 'Internal Server Error');
             }
         } else {

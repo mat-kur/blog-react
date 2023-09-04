@@ -11,6 +11,7 @@ const UserProfile = require('../controllers/user-profile/user-profile')
 const Register = require('../controllers/login-register/register')
 const Login = require('../controllers/login-register/login')
 const ReportedComment = require('../controllers/admin/reportedComment')
+const UsersActions = require('../controllers/admin/users-list')
 
 const upload = require('../services/upload-user-avatar')
 
@@ -27,9 +28,12 @@ router.post ('/admin/reported-comments/delete/:id', ReportedComment.deleteUserRe
 router.post ('/admin/reported-comments/approve/:id', ReportedComment.approveReport)
 router.get ('/admin/reported-comments/', ReportedComment.sendReportedComments)
 router.post ('/admin/reports-history/', ReportedComment.reportsHistory)
+router.get ('/admin/users-list/', UsersActions.sendUsersList)
+router.post ('/admin/users-list/acces-admin/', UsersActions.accesAdmin)
+router.post ('/admin/users-list/', UsersActions.banUSer)
 
 
-//http://localhost:5000/admin/reported-comments/approve/${id}
+//http://localhost:5000/admin/users-list/
 
 
 //homepage

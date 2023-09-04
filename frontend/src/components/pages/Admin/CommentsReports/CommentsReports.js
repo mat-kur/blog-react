@@ -101,10 +101,7 @@ export const CommentsReports = ({user}) => {
 
     return (
         <>
-            //test
-
             <Link to={'/admin/reports-history/'}>Reports History</Link>
-
             {reportData && reportData.map(report => (
 
                 <div key={report._id}>
@@ -117,7 +114,7 @@ export const CommentsReports = ({user}) => {
                     <p>{report.comment.thread._id} ID tematu w ktorym jest zreportowany comment</p>
                     <p>{report.author.username} username, który zreportował</p>
                     <p>{report.reason}</p>
-                    <button onClick={() => deleteReportUser(report._id, user.user._id)}>send</button>
+                    <button onClick={() => deleteReportUser(report._id, user.user._id)}>reject report</button>
                     <button onClick={() => activeFormReply(report._id)}>accept report</button>
                     {activeForms[report._id] && (
                         <div>

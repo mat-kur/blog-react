@@ -18,6 +18,7 @@ import {Auth} from "./components/PrivateRoute/PrivateRoute";
 import {AuthLogInUser} from "./components/PrivateRoute/LogInRedirect";
 import {CommentsReports} from "./components/pages/Admin/CommentsReports/CommentsReports";
 import {ReportsHistory} from "./components/pages/Admin/ReportsHistory/ReportsHistory";
+import {UsersActions} from "./components/pages/Admin/UsersActions/UsersActions";
 
 function App() {
     const [user, setUser] = useState(null)
@@ -71,6 +72,10 @@ function App() {
                 <Route path="/admin/reported-comments" element={
                     <Auth user={user}>
                         <CommentsReports user={user} />
+                    </Auth>} />
+                <Route path="/admin/users-list/" element={
+                    <Auth user={user}>
+                        <UsersActions user={user}/>
                     </Auth>} />
                 <Route path="/admin/reports-history/" element={
                     <Auth user={user}>
