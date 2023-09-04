@@ -26,7 +26,7 @@ router.post ('/admin/edit-thread/:id', EditThread.editThread)
 router.post ('/admin/reported-comments/delete/:id', ReportedComment.deleteUserReport)
 router.post ('/admin/reported-comments/approve/:id', ReportedComment.approveReport)
 router.get ('/admin/reported-comments/', ReportedComment.sendReportedComments)
-router.get ('/admin/reports-history/', ReportedComment.reportsHistory)
+router.post ('/admin/reports-history/', ReportedComment.reportsHistory)
 
 
 //http://localhost:5000/admin/reported-comments/approve/${id}
