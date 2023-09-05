@@ -3,6 +3,7 @@ import React from "react";
 import "./UsersList.css"
 import UserAdmin from "./UsersAction/AdminUser/AdminUser";
 import UserBan from "./UsersAction/BanUser/BanUser";
+import SearchBar from "./SearchBar/SearchBar";
 
 
 export const UsersList = ({user}) => {
@@ -18,6 +19,8 @@ export const UsersList = ({user}) => {
     const [userRole, setUserRole] = useState(null);
     const [userBanned, setUserBanned] = useState(null);
 
+    const [searchQuery, setSearchQuery] = useState('');
+
     const handleAdminAccessClick = (userId, username, userAdmin, userIsBanned) => {
         setSelectedUserId(userId);
         setSelectedUsername(username)
@@ -27,7 +30,9 @@ export const UsersList = ({user}) => {
     };
 
     useEffect(() => {
-        const URL = 'http://localhost:5000/admin/users-list/';
+        const URL = searchQuery ?
+            `http://localhost:5000/admin/users-list/?q=${searchQuery}` :
+            'http://localhost:5000/admin/users-list/';
 
         const fetchData = async () => {
             try {
@@ -46,7 +51,8 @@ export const UsersList = ({user}) => {
         };
 
         fetchData();
-    }, [usersList]);
+    }, [searchQuery, usersList]);
+
 
 
     const setAdminRights = async (userID, userAdminID) => {
@@ -64,11 +70,11 @@ export const UsersList = ({user}) => {
                 },
             })
                 .then(async (response) => {
-                    console.log(response)
+                    console.log(response);
                 })
                 .catch((err) => {
                     console.log(err.message);
-                });
+                })
 
         } catch (e) {
             console.log(e)
@@ -127,6 +133,11 @@ export const UsersList = ({user}) => {
 
     return (
         <div>
+
+            <SearchBar
+                setUsersList={setUsersList}
+                usersList={usersList}
+                setSearchQuery={setSearchQuery} />
             {usersList && usersList.map(singleUser => (
                 <div key={singleUser._id} className="user-container">
                     <p>{singleUser.username} username</p>

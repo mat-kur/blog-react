@@ -5,10 +5,15 @@ const User = require("../../db/models/user-model");
 class UsersActions {
 
     async sendUsersList (req, res) {
+        const query = req.query.q;
 
         try {
-            const usersList = await User.find()
-            if (!usersList) return res.status(404).send('Document not found')
+            const usersList = await User.find({
+                username: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
+            })
+            if (usersList.length === 0) {
+                return res.status(404).send('No users found');
+            }
 
             res.json(usersList)
         } catch (e) {
