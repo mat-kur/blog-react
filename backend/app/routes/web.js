@@ -29,8 +29,8 @@ router.post ('/admin/reported-comments/approve/:id', ReportedComment.approveRepo
 router.get ('/admin/reported-comments/', ReportedComment.sendReportedComments)
 router.post ('/admin/reports-history/', ReportedComment.reportsHistory)
 router.get ('/admin/users-list/', UsersActions.sendUsersList)
-router.post ('/admin/users-list/acces-admin/', UsersActions.accesAdmin)
-router.post ('/admin/users-list/', UsersActions.banUSer)
+router.post ('/admin/users-list/acces-admin/', UsersActions.setAdminRights)
+router.post ('/admin/users-list/ban-user', UsersActions.banUser)
 
 
 //http://localhost:5000/admin/users-list/

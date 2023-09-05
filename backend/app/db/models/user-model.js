@@ -38,6 +38,10 @@ const userSchema = new Schema({
         type: Number,
         default: 0
     },
+    banned: {
+        type: Number,
+        default: 0
+    },
     posts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
