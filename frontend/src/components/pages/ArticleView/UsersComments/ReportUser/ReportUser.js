@@ -3,7 +3,7 @@ import React from "react";
 import {useParams} from "react-router-dom";
 
 
-export const ReportUser = ({commentID, userID, userComments}) => {
+export const ReportUser = ({commentID, userID, userComments, authorOfComment}) => {
 
 
 
@@ -27,7 +27,8 @@ export const ReportUser = ({commentID, userID, userComments}) => {
             body: JSON.stringify({
                 commentID,
                 userID,
-                reason
+                reason,
+                authorOfComment
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

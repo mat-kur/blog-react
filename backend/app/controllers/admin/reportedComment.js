@@ -30,25 +30,81 @@ class ReportedComment {
 
     async sendReportedComments(req, res) {
 
-        try {
-            const reportedComments = await Report.find({status: this.REPORT_STATUS.PENDING})
-                .populate({
-                    path: 'comment',
-                    populate: [
-                        {
-                            path: 'author',
-                            select: 'username'
-                        },
-                        {
-                            path: 'thread',
-                            select: 'title _id'
-                        }
-                    ]
-                })
-                .populate('author', 'username avatar')
-            if (!reportedComments) this.sendResponse(res, 404, 'Document not found');
+        const query = req.query.q;
+        const perPage = 5;
+        const currentPage = parseInt(req.query.page) || 1;
 
-            res.json(reportedComments)
+        try {
+
+            let reportedComments;
+            const totalCount = await Report.countDocuments({status: this.REPORT_STATUS.PENDING});
+            const totalPages = Math.ceil(totalCount / perPage);
+
+            if (currentPage === 1) {
+                reportedComments = await Report.find({
+                    status: this.REPORT_STATUS.PENDING,
+                    usernameOfReportedComment: new RegExp(query, 'i') })
+
+                    .populate({
+                        path: 'comment',
+                        populate: [
+                            {
+                                path: 'author',
+                                select: 'username'
+                            },
+                            {
+                                path: 'thread',
+                                select: 'title _id'
+                            }
+                        ]
+                    })
+                    .populate('author', 'username avatar')
+                    .select('-password -posts -email -commentNumber')
+                    .sort({ _id: -1 })
+                    .limit(perPage);
+
+
+            } else {
+                reportedComments = await Report.find({
+                    status: this.REPORT_STATUS.PENDING,
+                    usernameOfReportedComment: new RegExp(query, 'i')})
+                    .populate({
+                        path: 'comment',
+                        populate: [
+                            {
+                                path: 'author',
+                                select: 'username'
+                            },
+                            {
+                                path: 'thread',
+                                select: 'title _id'
+                            }
+                        ]
+                    })
+                    .populate('author', 'username avatar')
+                    .select('-password -posts -email -commentNumber')
+                    .sort({ _id: -1 })
+                    .skip((currentPage - 1) * perPage)
+                    .limit(perPage);
+
+
+            }
+
+
+            if (reportedComments.length === 0) {
+                return res.json({
+                    reportedComments: [],
+                    currentPage: 1,
+                    totalPages: 0
+                });
+            }
+
+            res.json({
+                reportedComments,
+                    currentPage,
+                    totalPages
+                }
+            )
         } catch (e) {
             console.error("Error in sendReportedComments:", e)
             this.sendResponse(res, 500, 'Internal Server Error');

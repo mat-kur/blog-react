@@ -164,7 +164,7 @@ export const UsersComments = props => {
                                                     className={`${userComment.likedBy.includes(user.user._id) ? 'like fa-regular fa-thumbs-down like-button' : 'fa-regular fa-thumbs-up like-button'}`}
                                                 ></i>
                                                 <ReplyComment commentID={userComment._id} userID={user.user._id} userComments={userComments} />
-                                                <ReportUser commentID={userComment._id} userID={user.user._id} userComments={userComments} />
+                                                <ReportUser commentID={userComment._id} userID={user.user._id} userComments={userComments} authorOfComment={userComment.author.username} />
                                             </>
                                         )
                                     }

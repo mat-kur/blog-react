@@ -42,29 +42,6 @@ export const ReportsHistory = props => {
             .catch(error => console.log('error:', error));
     };
 
-
-    // useEffect(() => {
-    //
-    //     const URL = 'http://localhost:5000/admin/reports-history/';
-    //     const fetchData = async () => {
-    //         try {
-    //             setLoading(true);
-    //             const response = await fetch(URL);
-    //             if (!response.ok) {
-    //                 throw new Error('Network response was not ok');
-    //             }
-    //             const data = await response.json();
-    //             setReportList(data);
-    //         } catch (error) {
-    //             setError(error);
-    //         } finally {
-    //             setLoading(false);
-    //         }
-    //     };
-    //
-    //     fetchData();
-    // }, []);
-
     useEffect(async() => {
         const URL = 'http://localhost:5000/admin/reports-history/';
 

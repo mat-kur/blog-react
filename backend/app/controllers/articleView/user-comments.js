@@ -119,14 +119,15 @@ class UserComments {
         const {_id: id} = req.params
 
         if (req.session.user) {
-            const {commentID, userID, reason} = req.body
+            const {commentID, userID, reason, authorOfComment} = req.body
 
             const report = new Report({
                 reason: reason,
                 date: getFullDate(),
                 author: req.session.user._id,
                 comment: commentID,
-                avatar: req.session.user.avatar
+                avatar: req.session.user.avatar,
+                usernameOfReportedComment: authorOfComment
             });
 
             const comment = await Comment.findById({_id: commentID})

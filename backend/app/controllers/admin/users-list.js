@@ -5,17 +5,48 @@ const User = require("../../db/models/user-model");
 class UsersActions {
 
     async sendUsersList (req, res) {
+
         const query = req.query.q;
+        const perPage = 4;
+        const currentPage = parseInt(req.query.page) || 1;
 
         try {
-            const usersList = await User.find({
-                username: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
-            })
-            if (usersList.length === 0) {
-                return res.status(404).send('No users found');
-            }
+            let usersList;
+            const totalCount = await User.countDocuments();
+            const totalPages = Math.ceil(totalCount / perPage);
 
-            res.json(usersList)
+            if (currentPage === 1) {
+                 usersList = await User.find({
+                    username: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
+                })
+                     .select('-password -posts -email -commentNumber')
+                    .sort({ _id: -1 })
+                    .limit(perPage);
+
+            } else {
+                usersList = await User.find({
+                    username: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
+                })
+                    .select('-password -posts -email -commentNumber')
+                    .sort({ _id: -1 })
+                    .skip((currentPage - 1) * perPage)
+                    .limit(perPage);
+
+
+            }
+            if (usersList.length === 0) {
+                return res.json({
+                    usersList: [],
+                    currentPage: 1,
+                    totalPages: 0
+                });
+            }
+            res.json({
+                usersList,
+                currentPage,
+                totalPages
+                }
+            )
         } catch (e) {
             console.error("Error in sendUsersList:", e)
             res.status(500).send('Internal Server Error')

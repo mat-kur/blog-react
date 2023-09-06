@@ -1,7 +1,8 @@
 import react, {useEffect, useState} from "react"
 import React from "react";
 import {Link, useParams} from "react-router-dom";
-
+import SearchBar from "./SearchBar/SearchBar";
+import "./CommentsReports.css"
 
 export const CommentsReports = ({user}) => {
 
@@ -9,16 +10,32 @@ export const CommentsReports = ({user}) => {
     const [approveDes, setApproveDes] = useState('')
     const [activeForms, setActiveForms] = useState({})
 
+    const [currentPage, setCurrentPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const pages = new Array(totalPages).fill(null).map((v, i) => i)
+
     const { id } = useParams()
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
 
 
     useEffect(() => {
+
+        const URL = searchQuery ?
+            `http://localhost:5000/admin/reported-comments/?q=${searchQuery}` :
+            `http://localhost:5000/admin/reported-comments/?page=${currentPage}`;
         const fetchReportedComments = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/admin/reported-comments/`);
+                const response = await fetch(`${URL}`);
                 if (response.ok) {
                     const data = await response.json();
-                    setReportData(data);
+                    setReportData(data.reportedComments);
+                    setCurrentPage(data.currentPage);
+                    setTotalPages(data.totalPages);
                 } else {
                     console.error('Wystąpił błąd podczas pobierania odpowiedzi');
                 }
@@ -28,7 +45,7 @@ export const CommentsReports = ({user}) => {
         };
 
         fetchReportedComments();
-    }, []);
+    }, [searchQuery, currentPage]);
 
     const deleteReportUser = async (reportID, userID) => {
 
@@ -102,7 +119,9 @@ export const CommentsReports = ({user}) => {
     return (
         <>
             <Link to={'/admin/reports-history/'}>Reports History</Link>
-            {reportData && reportData.map(report => (
+
+            <SearchBar setReportData={setReportData} setSearchQuery={setSearchQuery}/>
+            {Array.isArray(reportData) && reportData.map(report => (
 
                 <div key={report._id}>
                     <p>{report._id}</p>
@@ -113,7 +132,7 @@ export const CommentsReports = ({user}) => {
                     <Link to={`/article-view/${report.comment.thread._id}`} >{report.comment.thread.title}</Link>
                     <p>{report.comment.thread._id} ID tematu w ktorym jest zreportowany comment</p>
                     <p>{report.author.username} username, który zreportował</p>
-                    <p>{report.reason}</p>
+                    <p>{report.reason} powód</p>
                     <button onClick={() => deleteReportUser(report._id, user.user._id)}>reject report</button>
                     <button onClick={() => activeFormReply(report._id)}>accept report</button>
                     {activeForms[report._id] && (
@@ -127,10 +146,15 @@ export const CommentsReports = ({user}) => {
                         </div>
                     )}
                 </div>
-
-
             ))}
+
            <br/>
+
+            {!searchQuery && pages.map((pageIndex) => (
+                <button key={pageIndex + 1} onClick={() => handlePageChange(pageIndex + 1)}>
+                    {pageIndex + 1}
+                </button>
+            ))}
 
 
         </>

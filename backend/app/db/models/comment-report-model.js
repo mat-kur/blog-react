@@ -15,7 +15,11 @@ const reportSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
+
     date: {
+        type: String,
+    },
+    usernameOfReportedComment: {
         type: String,
     },
     status: {
