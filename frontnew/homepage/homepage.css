@@ -5,11 +5,15 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
     color: rgb(194, 194, 194);
     background-color: rgb(25, 25, 25);
-    min-height: 200vh;
+    min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
+    margin: 0 auto;
 }
 
 
@@ -18,11 +22,15 @@ body {
 Header + nav bar
 */
 
+main {
+    flex: 1 0 auto;
+}
+
 header {
     position: fixed;
     top: 0;
     right: 0;
-    display: none;
+    /*display: none;*/
     flex-direction: column;
     padding: 10px;
     min-height: 100vh;
@@ -31,6 +39,7 @@ header {
 
 header h3 {
 
+    font-weight: 300;
     margin-top: 30px;
     color: #ffffff;
 
@@ -52,7 +61,7 @@ ul li {
     margin-top: 20px;
 }
 
-ul li:last-of-type {
+ul li.sign-in {
     border: 1px solid #ffffff;
     border-radius: 10px;
     padding: 1px 10px;
@@ -64,6 +73,67 @@ ul {
     justify-content: center;
     align-items: center;
 }
+
+@media (min-width: 1200px) {
+
+    header {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        min-height: 100%;
+        background-color: #000000;
+        justify-content: flex-start; /* Rozdziela tytuł i nawigację na dwie strony */
+        align-items: center; /* Wyśrodkowuje elementy w pionie */
+        padding: 10px 20px;
+        margin-top: 30px;
+        border-radius: 15px;
+    }
+
+    header h3 {
+
+        flex-shrink: 0;
+        margin-top: 0;
+        color: #ffffff;
+
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        /*flex-grow: 1;*/
+    }
+
+
+    nav li {
+        justify-content: space-between;
+        margin: 0 40px; /* Dodaje margines między elementami listy */
+    }
+
+    nav ul li a:hover {
+        color: rgb(186, 246, 127);
+    }
+
+    nav ul li.sign-in {
+        padding: 2px 50px;
+    }
+
+    nav ul li i {
+        font-size: 25px;
+    }
+
+    nav ul li:first-of-type {
+
+        margin-left: 100px;
+        color: #ffffff;
+
+    }
+
+
+}
+
 
 
 /*_______________________________
@@ -78,7 +148,7 @@ Start of main content blog
 
 section.left-side {
     background-color: rgb(43, 43, 43);
-    margin: 20px 10px;
+    margin: 20px 30px 30px;
     border-radius: 10px;
     overflow: hidden;
 
@@ -180,6 +250,63 @@ div.activity .author, div.activity .likes {
 .fa-regular {
 
     color: rgb(149, 197, 101);
+
+}
+
+
+@media (min-width: 768px) {
+
+    div.top {
+        justify-content: center;
+    }
+
+    div.top h2 {
+        font-size: 20px;
+    }
+
+    div.top img {
+        max-width: 80px;
+        max-height: 80px;
+
+    }
+
+    div.tags a {
+        font-size: 14px;
+    }
+
+    div.content p {
+        font-size: 15px;
+    }
+
+    div.content button {
+        font-size: 16px;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    div.top {
+        justify-content: center;
+    }
+
+    div.top h2 {
+        font-size: 22px;
+    }
+
+    div.tags a {
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+
+    div.content p {
+        font-size: 16px;
+    }
+
+    div.activity .author, div.activity .likes {
+        font-size: 14px;
+    }
+
 
 }
 
@@ -298,8 +425,151 @@ div.top-news p {
     font-size: 14px;
 }
 
+
+@media (min-width: 768px) {
+
+    div.img img{
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    div.news h4 {
+        font-size: 16px;
+    }
+
+    div.news p {
+        font-size: 13px;
+    }
+
+    /*top users*/
+
+    div.activity-user p {
+        font-size: 16px;
+    }
+
+    div.activity-user h4 {
+        font-size: 16px;
+
+    }
+
+    .img-user {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    div.top-news h4 {
+        width: 300px;
+        font-size: 16px;
+    }
+
+    div.top-news p {
+        display: block;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    div.top-news i {
+        margin-left: 5px;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    div.newest-posts div.container {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    div.newest-posts .container-activity {
+        justify-content: space-between;
+    }
+
+    div.test {
+        display: flex;
+    }
+
+    div.test .posts-main {
+        width: 50%;
+    }
+
+    div.top-news h4 {
+        min-width: 100px;
+        font-size: 16px;
+    }
+
+    div.top-news h4 span {
+        color: #c5c5c5;
+    }
+
+    div.newest-posts {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    div.top-news {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    section.left-side {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        display: flex;
+    }
+
+    div.test {
+        flex-direction: column;
+    }
+
+    div.test .posts-main {
+        width: 95%;
+    }
+
+
+    div.top h2 {
+        font-size: 22px;
+    }
+
+    div.tags a {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    div.content p {
+        font-size: 14px;
+    }
+
+    div.activity .author, div.activity .likes {
+        font-size: 12px;
+    }
+
+    div.top img {
+        max-width: 60px;
+        max-height: 60px;
+
+    }
+
+}
+
+
+/*footer*/
+
 footer div.footer {
     display: flex;
+    position: relative;
+    bottom: 0;
     justify-content: center;
     align-items: center;
     min-height: 5vh;
