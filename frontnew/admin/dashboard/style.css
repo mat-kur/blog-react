@@ -117,6 +117,11 @@ ul li {
         list-style: none;
     }
 
+    .threads-container a {
+        min-width: 500px;
+        max-width: 630px;
+    }
+
 }
 
 
@@ -288,5 +293,32 @@ section.last-comments h3, .last-threads h3 {
 
     section.last-comments, section.last-threads {
         margin: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .count-user i, .count-threads i, .count-comments i {
+        flex-shrink: 0;          /* Zapobiega zmniejszaniu się ikon */
+        width: 24px;             /* Przykładowa stała szerokość ikony */
+        text-align: center;
+        font-size: 26px;
+        margin-left: 110px;
+    }
+
+    ul li a{
+        display: flex;           /* Ustawia ikonę i tekst obok siebie w poziomie */
+        /*align-items: center;     !* Wyśrodkowuje ikonę i tekst w pionie *!*/
+        text-decoration: none;   /* Usuwa podkreślenie z linku */
+    }
+
+    header {
+        min-width: 300px;
+        max-width: 20vw;
+    }
+
+    .fa-dice-d6, .nav-users, .fa-list-ul, .fa-flag {
+        margin-right: 10px;      /* Dodaje odstęp między ikoną a tekstem */
+        flex-shrink: 0;
     }
 }

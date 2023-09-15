@@ -1,0 +1,251 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    color: rgb(194, 194, 194);
+    background-color: rgb(25, 25, 25);
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    margin: 0 auto;
+}
+
+header {
+    position: fixed;
+    /*top: 0;*/
+    /*right: 0;*/
+    /*display: none;*/
+    /*padding: 10px;*/
+    min-height: 100vh;
+    background-color: #000000;
+}
+
+header h3.title-admin {
+    display: block;
+    font-weight: 300;
+    margin: 10px;
+    color: #ffffff;
+}
+
+header h3 .title-admin-span, ul li a i  {
+    color: rgb(186, 246, 127);
+}
+
+header ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li a {
+    margin: 0;
+    font-size: 16px;
+    text-decoration: none;
+    color: rgb(196, 196, 196);
+
+}
+
+header ul li {
+    margin-top: 20px;
+    list-style: none;
+}
+
+
+@media (min-width: 992px) {
+
+    body {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        min-width: 20vw;
+        /*justify-content: center;*/
+        align-items: center;
+        padding: 0px;
+        min-height: 100vh;
+        background-color: #000000;
+    }
+
+    header h3.title-admin {
+        display: block;
+        font-weight: 300;
+        margin: 20px;
+        color: #ffffff;
+    }
+
+    header h3 .title-admin-span, ul li a i  {
+        /*margin: -10px;*/
+        color: rgb(186, 246, 127);
+    }
+
+    header ul li a {
+        padding: 1px;
+    }
+
+    header ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header ul li a {
+        margin: 10px;
+        font-size: 16px;
+        text-decoration: none;
+        color: rgb(196, 196, 196);
+
+    }
+
+    header ul li {
+        padding: 10px;
+        width: 100%;
+        margin-top: 20px;
+        list-style: none;
+    }
+
+    .threads-container a {
+        min-width: 500px;
+        max-width: 630px;
+    }
+
+}
+
+section.users-list {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgb(110, 110, 110);
+    background-color: rgb(31, 31, 31);
+}
+
+td img {
+    max-width: 50px;
+}
+
+div.search-bar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /*padding: 10px;*/
+}
+
+div.search-bar input {
+    width: 70%;
+    min-height: 40px;
+    border-radius: 10px;
+    outline: transparent;
+    padding-left: 30px;
+    background-color: transparent;
+    color: rgb(196, 196, 196);
+    border: 1px solid rgb(196, 196, 196);
+}
+
+div.search-bar i {
+    position: absolute;  /* Pozycjonuje ikonę względem kontenera .search-bar */
+    left: 20px;          /* Odstęp od lewej krawędzi kontenera */
+    top: 50%;            /* Ustawia ikonę na środku kontenera w pionie */
+    transform: translateY(-50%); /* Przesuwa ikonę o połowę jej wysokości w górę, aby była dokładnie wyśrodkowana */
+    pointer-events: none; /* Zapobiega interakcji z ikoną (kliknięcie, hover itp.) */
+}
+
+div.search-bar button {
+    margin-left: 10px;
+    background-color: transparent;
+    color: rgb(196, 196, 196);;
+    border: 1px solid rgb(196, 196, 196);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+/*
+Generic Styling, for Desktops/Laptops
+*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        max-width: 100px;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+
+}
+
+    /*
+    Label the data
+    */
+/*    td:nth-of-type(1):before { content: "First Name"; }*/
+/*    td:nth-of-type(2):before { content: "Last Name"; }*/
+/*    td:nth-of-type(3):before { content: "Job Title"; }*/
+/*    td:nth-of-type(4):before { content: "Favorite Color"; }*/
+/*    td:nth-of-type(5):before { content: "Wars of Trek?"; }*/
+/*    td:nth-of-type(6):before { content: "Secret Alias"; }*/
+/*    td:nth-of-type(7):before { content: "Date of Birth"; }*/
+/*    td:nth-of-type(8):before { content: "Dream Vacation City"; }*/
+/*    td:nth-of-type(9):before { content: "GPA"; }*/
+/*    td:nth-of-type(10):before { content: "Arbitrary Data"; }*/
+/*}*/
