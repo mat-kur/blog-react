@@ -11,8 +11,9 @@ export const ThreadList = props => {
             fetch('http://localhost:5000/api/homepage')
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data.data)
                     console.log(data)
-                    setThreadList(data);
+                    setThreadList(data.data);
                 })
                 .catch(error => {
                     console.log(error);
@@ -59,7 +60,7 @@ export const ThreadList = props => {
                 </tr>
                 </thead>
                 <tbody>
-                    {threadList.map(thread => (
+                    {threadList && threadList.map(thread => (
                 <tr key={thread._id}>
                     <td>{thread.title}</td>
                     <td>{thread._id}</td>

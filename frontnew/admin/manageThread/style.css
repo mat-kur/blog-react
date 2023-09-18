@@ -19,6 +19,7 @@ body {
 
 header {
     position: fixed;
+    display: none;
     /*top: 0;*/
     /*right: 0;*/
     /*display: none;*/
@@ -135,14 +136,20 @@ div.list-of-users div.avatar img {
     margin-left: auto;
 }
 
-.admin-btn, .ban-btn {
+.edit-btn, .new-btn, .ban-btn {
     padding: 5px 10px; /* Dodaje odstępy w przyciskach */
     border: none; /* Usuwa obramowanie */
     cursor: pointer; /* Kursor wskazuje, że przycisk jest klikalny */
 }
 
-.admin-btn {
+.new-btn {
     background-color: #007BFF; /* Niebieski kolor tła */
+    color: white; /* Biały kolor tekstu */
+    margin-top: 10px;
+}
+
+.edit-btn {
+    background-color: #13f35d; /* Niebieski kolor tła */
     color: white; /* Biały kolor tekstu */
     margin-right: 5px;
 }

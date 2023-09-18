@@ -13,22 +13,141 @@
     <title>Document</title>
 </head>
 <body>
+<header>
+    <h3 class="title-admin"><span class="title-admin-span"><</span> CODERZ <span class="title-admin-span">/></span></h3>
+    <nav>
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-dice-d6"></i> Dashboard</a></li>
+            <li><a href="#"><i class="nav-users fa-solid fa-users"></i> Manage users</a></li>
+            <li><a href="#"><i class="fa-solid fa-list-ul"></i> Manage thread</a></li>
+            <li><a href="#"><i class="fa-solid fa-flag"></i> Report system</a></li>
+        </ul>
+    </nav>
+</header>
 <section class="users-list">
     <div class="search-bar">
         <input type="text" placeholder="Search...">
         <i class="fa-solid fa-search"></i>
         <button class="submit">SEARCH</button>
     </div>
-<!--    <div class="list">-->
-<!--        <ul>-->
-<!--            <li><a href="">ADMIN</a></li>-->
-<!--            <li><a href="">ADMIN</a></li>-->
-<!--            <li><a href="">ADMIN</a></li>-->
-<!--            <li><a href="">ADMIN</a></li>-->
-<!--            <li><a href="">ADMIN</a></li>-->
-<!--        </ul>-->
-<!--    </div>-->
-    <table>
+    <div class="list-of-users">
+        <div class="avatar">
+            <p>Avatar:</p>
+            <img class="single-user-avatar" src="./default-avatar.jpg" alt="">
+        </div>
+        <div class="username">
+            <p>Username: </p>
+            <p class="single-user-username">Admin</p>
+        </div>
+        <div class="email">
+            <p>Email: </p>
+            <p class="single-user-email">Admin@admin.tst</p>
+        </div>
+        <div class="role">
+            <p>Role: </p>
+            <p class="single-user-role">Admin</p>
+        </div>
+        <div class="action">
+            <p>Actions: </p>
+            <button class="single-user-actions admin-btn">Admin</button>
+            <button class="ban-btn">Ban</button>
+        </div>
+    </div>
+    <div class="list-of-users">
+        <div class="avatar">
+            <p>Avatar:</p>
+            <img class="single-user-avatar" src="./default-avatar.jpg" alt="">
+        </div>
+        <div class="username">
+            <p>Username: </p>
+            <p class="single-user-username">Admin</p>
+        </div>
+        <div class="email">
+            <p>Email: </p>
+            <p class="single-user-email">Admin@admin.tst</p>
+        </div>
+        <div class="role">
+            <p>Role: </p>
+            <p class="single-user-role">Admin</p>
+        </div>
+        <div class="action">
+            <p>Actions: </p>
+            <button class="single-user-actions admin-btn">Admin</button>
+            <button class="ban-btn">Ban</button>
+        </div>
+    </div>
+    <div class="list-of-users">
+        <div class="avatar">
+            <p>Avatar:</p>
+            <img class="single-user-avatar" src="./default-avatar.jpg" alt="">
+        </div>
+        <div class="username">
+            <p>Username: </p>
+            <p class="single-user-username">Admin</p>
+        </div>
+        <div class="email">
+            <p>Email: </p>
+            <p class="single-user-email">Admin@admin.tst</p>
+        </div>
+        <div class="role">
+            <p>Role: </p>
+            <p class="single-user-role">Admin</p>
+        </div>
+        <div class="action">
+            <p>Actions: </p>
+            <button class="single-user-actions admin-btn">Admin</button>
+            <button class="ban-btn">Ban</button>
+        </div>
+    </div>
+    <div class="list-of-users">
+        <div class="avatar">
+            <p>Avatar:</p>
+            <img class="single-user-avatar" src="./default-avatar.jpg" alt="">
+        </div>
+        <div class="username">
+            <p>Username: </p>
+            <p class="single-user-username">Admin</p>
+        </div>
+        <div class="email">
+            <p>Email: </p>
+            <p class="single-user-email">Admin@admin.tst</p>
+        </div>
+        <div class="role">
+            <p>Role: </p>
+            <p class="single-user-role">Admin</p>
+        </div>
+        <div class="action">
+            <p>Actions: </p>
+            <button class="single-user-actions admin-btn">Admin</button>
+            <button class="ban-btn">Ban</button>
+        </div>
+    </div>
+    <div class="list-of-users">
+        <div class="avatar">
+            <p>Avatar:</p>
+            <img class="single-user-avatar" src="./default-avatar.jpg" alt="">
+        </div>
+        <div class="username">
+            <p>Username: </p>
+            <p class="single-user-username">Admin</p>
+        </div>
+        <div class="email">
+            <p>Email: </p>
+            <p class="single-user-email">Admin@admin.tst</p>
+        </div>
+        <div class="role">
+            <p>Role: </p>
+            <p class="single-user-role">Admin</p>
+        </div>
+        <div class="action">
+            <p>Actions: </p>
+            <button class="single-user-actions admin-btn">Admin</button>
+            <button class="ban-btn">Ban</button>
+        </div>
+    </div>
+
+
+    <table class="users-table">
         <thead>
         <tr>
             <th>Avatar</th>
@@ -39,43 +158,68 @@
         </tr>
         </thead>
         <tbody>
+        <!-- Przykładowy wiersz użytkownika -->
         <tr>
-            <td><img src="./default-avatar.jpg" alt="User Avatar" class="avatar"></td>
+            <td><img src="default-avatar.jpg" alt="User Avatar" class="avatar"></td>
             <td>JohnDoe</td>
-            <td>johndo.fdsafds.e@example.com</td>
+            <td>johndoe@example.com</td>
             <td>User</td>
             <td>
                 <button class="admin-btn">Admin</button>
                 <button class="ban-btn">Ban</button>
             </td>
         </tr>
+        <tr>
+            <td><img src="default-avatar.jpg" alt="User Avatar" class="avatar"></td>
+            <td>Admin</td>
+            <td>johnfdsafdsadoe@example.com</td>
+            <td>User</td>
+            <td>
+                <button class="admin-btn">Admin</button>
+                <button class="ban-btn">Ban</button>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="default-avatar.jpg" alt="User Avatar" class="avatar"></td>
+            <td>JohnfdsaDoe</td>
+            <td>johfgdsgdfsndoe@example.com</td>
+            <td>User</td>
+            <td>
+                <button class="admin-btn">Admin</button>
+                <button class="ban-btn">Ban</button>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="default-avatar.jpg" alt="User Avatar" class="avatar"></td>
+            <td>JohnDoe</td>
+            <td>johndfffdsagasdoe@example.com</td>
+            <td>User</td>
+            <td>
+                <button class="admin-btn">Admin</button>
+                <button class="ban-btn">Ban</button>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="default-avatar.jpg" alt="User Avatar" class="avatar"></td>
+            <td>JohnDoe</td>
+            <td>johndfffdsagasdoe@example.com</td>
+            <td>User</td>
+            <td>
+                <button class="admin-btn">Admin</button>
+                <button class="ban-btn">Ban</button>
+            </td>
+        </tr>
+        <!-- Możesz dodać więcej wierszy z użytkownikami w podobny sposób -->
         </tbody>
     </table>
-<!--    <table>-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>First Name</th>-->
-<!--            <th>Job Title</th>-->
-<!--            <th>Last Name</th>-->
-<!--            <th>Job Title</th>-->
-<!--            <th>Job Title</th>-->
-<!--            <th>Job Title</th>-->
-<!--            <th>Job Title</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr>-->
-<!--            <td>James</td>-->
-<!--            <td>Matman</td>-->
-<!--            <td>Chief Sandwich Eater</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>The</td>-->
-<!--            <td>Tick</td>-->
-<!--            <td>Crimefighter Sorta</td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
+
+    <div class="pagination">
+        <a href="#">1</a>
+        <a href="#" class="active">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+    </div>
 
 </section>
 </body>
