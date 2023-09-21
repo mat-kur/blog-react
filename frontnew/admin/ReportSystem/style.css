@@ -19,6 +19,7 @@ body {
 
 header {
     position: fixed;
+    display: none;
     /*top: 0;*/
     /*right: 0;*/
     /*display: none;*/
@@ -37,8 +38,6 @@ header h3.title-admin {
 header h3 .title-admin-span, ul li a i  {
     color: rgb(186, 246, 127);
 }
-
-
 
 header ul {
     display: flex;
@@ -60,22 +59,15 @@ header ul li {
     list-style: none;
 }
 
-section.users-list {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid rgb(110, 110, 110);
-    background-color: rgb(31, 31, 31);
-}
-
-td img {
-    max-width: 50px;
-}
-
 div.search-bar {
     position: relative;
     display: flex;
     justify-content: center;
     /*padding: 10px;*/
+}
+
+section.report-system {
+    margin: 10px;
 }
 
 div.search-bar input {
@@ -106,84 +98,62 @@ div.search-bar button {
     border-radius: 10px;
 }
 
-div.list-of-users {
+
+.reported-comment {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    margin-top: 20px;
-    border: 1px solid rgb(110, 110, 110);
-}
-
-div.list-of-users div.avatar, div.list-of-users div.username, div.list-of-users div.email, div.list-of-users div.role, div.list-of-users div.action {
-    display: flex;
     margin: 10px;
-
+    border: 1px solid rgb(186, 246, 127);
+    border-radius: 10px;
 }
 
-
-.avatar {
-    display: flex;           /* Ustawia elementy w poziomie obok siebie */
-    align-items: center;     /* Wyśrodkowuje elementy w pionie */
-    justify-content: center; /* Wyśrodkowuje elementy w poziomie */
+.reported-comment a {
+    color: white;
+    margin-bottom: 5px;
 }
 
-div.list-of-users div.avatar img {
-    max-width: 40px;
-    max-height: 40px;
-    border-radius: 50%;
+.reported-comment p {
+    margin-bottom: 10px;
 }
 
-.single-user-avatar, .single-user-actions, .single-user-username, .single-user-email, .single-user-role {
+.reported-comment p.reported-by {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.reported-comment a.reported-by, .reported-content {
+    font-size: 14px;
+}
+
+.buttons-action {
     margin-left: auto;
 }
 
-.admin-btn, .ban-btn {
+
+.accept-report,
+.reject-report{
     padding: 5px 10px; /* Dodaje odstępy w przyciskach */
     border: none; /* Usuwa obramowanie */
     cursor: pointer; /* Kursor wskazuje, że przycisk jest klikalny */
 }
 
-.admin-btn {
-    background-color: #007BFF; /* Niebieski kolor tła */
+.accept-report {
+    background-color: #13f35d; /* Niebieski kolor tła */
     color: white; /* Biały kolor tekstu */
     margin-right: 5px;
 }
 
-.ban-btn {
+.reject-report {
     background-color: #FF0000; /* Czerwony kolor tła */
     color: white; /* Biały kolor tekstu */
 }
 
-table.users-table {
-    display: none;
-}
 
 
 
-@media (min-width: 768px) {
-
-    /*table.users-table {*/
-    /*    display: none;*/
-    /*}*/
-
-    div.list-of-users {
-        padding: 20px;
-    }
-
-
-    div.list-of-users div.avatar img {
-        max-width: 40px;
-        max-height: 40px;
-        border-radius: 50%;
-    }
-
-}
 
 @media (min-width: 992px) {
-
-    /*table.users-table {*/
-    /*    display: none;*/
-    /*}*/
 
     body {
         display: flex;
@@ -240,34 +210,9 @@ table.users-table {
         margin-top: 20px;
         list-style: none;
     }
-
-    .threads-container a {
-        min-width: 500px;
-        max-width: 630px;
-    }
-
-    section.users-list {
-        width: 100%;
-    }
-
-    div.search-bar i {
-        left: 82px;          /* Odstęp od lewej krawędzi kontenera */
-    }
-
 }
 
 @media (min-width: 1200px) {
-
-    div.list-of-users {
-        display: none;
-    }
-
-    table.users-table {
-        display: table;
-    }
-    div.search-bar i {
-        left: 106px;          /* Odstęp od lewej krawędzi kontenera */
-    }
 
     header {
         display: flex;
@@ -281,72 +226,4 @@ table.users-table {
         min-height: 100vh;
         background-color: #000000;
     }
-    .users-table {
-        width: 100%;
-        margin-left: 35px;
-        margin-top: 20px;
-        border-collapse: collapse; /* Usuwa podwójne obramowanie */
-    }
-
-    .users-table th, .users-table td {
-        padding: 8px 12px; /* Dodaje odstępy w komórkach */
-        text-align: left; /* Wyrównuje tekst do lewej strony */
-        border: none; /* Usuwa obramowanie */
-    }
-
-    .avatar {
-        width: 50px; /* Przykładowa szerokość avatara */
-        height: 50px; /* Przykładowa wysokość avatara */
-        border-radius: 50%; /* Okrągły kształt avatara */
-    }
-
-    .admin-btn, .ban-btn {
-        padding: 5px 10px; /* Dodaje odstępy w przyciskach */
-        margin-right: 5px; /* Dodaje odstęp między przyciskami */
-        border: none; /* Usuwa obramowanie */
-        cursor: pointer; /* Kursor wskazuje, że przycisk jest klikalny */
-    }
-
-    .admin-btn {
-        background-color: #007BFF; /* Niebieski kolor tła */
-        color: white; /* Biały kolor tekstu */
-    }
-
-    .ban-btn {
-        background-color: #FF0000; /* Czerwony kolor tła */
-        color: white; /* Biały kolor tekstu */
-    }
-
-    /* Responsywność dla małych ekranów */
-
-
-}
-
-
-
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.pagination a {
-    color: rgb(194, 194, 194);
-    padding: 4px 8px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border: 1px solid rgb(149, 197, 101);
-    margin: 0 6px;
-}
-
-.pagination a.active {
-    background-color: rgb(149, 197, 101);
-    color: white;
-    border: 1px solid rgb(149, 197, 101);
-}
-
-.pagination a:hover:not(.active) {
-    background-color: rgba(149, 197, 101, 0.5);
 }
