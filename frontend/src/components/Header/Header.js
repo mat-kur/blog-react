@@ -1,16 +1,14 @@
-import './Header.css'
+import "./Header.css"
 import {NavBar} from "./NavBar/NavBar";
-import {Link} from "react-router-dom";
 
 export const Header = props => {
-    return (
-        <>
-            <div className="header-container">
-                    <a href="/"><i className="fa-solid fa-code"></i>Mat <span>Code</span></a>
-                <div className="header-nav">
-                    <NavBar/>
-                </div>
-            </div>
-        </>
-    );
+
+
+    return(
+        <header>
+            <h3 className="header-title"><span className="header-title-span">/ </span> CODERZ <span
+                className="header-title-span">/></span></h3>
+            <NavBar/>
+        </header>
+    )
 }
