@@ -40,6 +40,10 @@ header ul li {
     list-style: none;
 }
 
+.admin-thread-wrapper {
+    display: flex;
+}
+
 section.create-thread {
     display: flex;
     flex-direction: column;
@@ -59,7 +63,7 @@ section.create-thread h1 {
     background-color: rgb(25, 25, 25);
     padding: 10px;
     border-radius: 8px;
-    width: 100%;
+    min-width: 100%;
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -211,6 +215,7 @@ section.create-thread h1 {
         background-color: rgb(25, 25, 25);
         border: 1px solid #3b3b3b;
         padding: 10px;
+        min-width: 100%;
     }
 
     .thread-form-container form {
@@ -288,6 +293,7 @@ section.create-thread h1 {
         border: 1px solid #3b3b3b;
         padding: 10px;
         margin-left: 60px;
+        min-width: 900px;;
     }
 
     .thread-form-container form {
@@ -337,4 +343,6 @@ section.create-thread h1 {
     }
 }
 
-
+.thread-form-container form {
+    min-width: 100%;
+}

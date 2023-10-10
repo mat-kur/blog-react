@@ -5,7 +5,7 @@ export const CreateThread = props => {
 
 
     return (
-        <>
+        <div className='admin-thread-wrapper'>
             <header>
                 <h3 className="title-admin"><span className="title-admin-span">c</span> CODERZ <span
                     className="title-admin-span">/></span></h3>
@@ -47,7 +47,7 @@ export const CreateThread = props => {
                     </form>
                 </div>
             </section>
-        </>
+        </div>
     );
 
 };
