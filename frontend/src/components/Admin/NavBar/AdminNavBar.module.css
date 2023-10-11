@@ -1,0 +1,122 @@
+/* AdminNavBar.module.css */
+
+.header {
+    position: fixed;
+    display: none;
+    /*top: 0;*/
+    /*right: 0;*/
+    /*display: none;*/
+    /*padding: 10px;*/
+    min-height: 100vh;
+    background-color: #000000;
+    margin-top: -10px;
+}
+
+.titleAdmin {
+    display: block;
+    font-weight: 300;
+    margin: 10px;
+    color: #ffffff;
+}
+
+.titleAdminSpan, .ulLiAI  {
+    color: rgb(186, 246, 127);
+}
+
+.ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ulLiA {
+    margin: 0;
+    font-size: 16px;
+    text-decoration: none;
+    color: rgb(196, 196, 196);
+}
+
+.ulLi {
+    margin-top: 20px;
+    list-style: none;
+}
+
+@media (min-width: 992px) {
+    .createThread h1 {
+        font-weight: 300;
+        margin: 10px;
+        justify-self: flex-start;
+        align-self: flex-start;
+    }
+
+    body {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        min-width: 20vw;
+        /*justify-content: center;*/
+        align-items: center;
+        padding: 0px;
+        min-height: 100vh;
+        background-color: #000000;
+    }
+
+    .titleAdmin {
+        display: block;
+        font-weight: 300;
+        margin: 20px;
+        color: #ffffff;
+    }
+
+    .titleAdminSpan, .ulLiAI {
+        /*margin: -10px;*/
+        color: rgb(186, 246, 127);
+    }
+
+    .ulLiA {
+        padding: 1px;
+    }
+
+    .ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ulLiA {
+        margin: 10px;
+        font-size: 16px;
+        text-decoration: none;
+        color: rgb(196, 196, 196);
+    }
+
+    .ulLi {
+        padding: 10px;
+        width: 100%;
+        margin-top: 20px;
+        list-style: none;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        min-width: 250px;
+        max-width: 300px;
+        /*justify-content: center;*/
+        align-items: center;
+        padding: 0px;
+        min-height: 100vh;
+        background-color: #000000;
+    }
+}

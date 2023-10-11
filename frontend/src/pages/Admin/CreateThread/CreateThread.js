@@ -6,18 +6,6 @@ export const CreateThread = props => {
 
     return (
         <div className='admin-thread-wrapper'>
-            <header>
-                <h3 className="title-admin"><span className="title-admin-span">c</span> CODERZ <span
-                    className="title-admin-span">/></span></h3>
-                <nav>
-                    <ul>
-                        <li><a href="#"><i className="fa-solid fa-dice-d6"></i> Dashboard</a></li>
-                        <li><a href="#"><i className="nav-users fa-solid fa-users"></i> Manage users</a></li>
-                        <li><a href="#"><i className="fa-solid fa-list-ul"></i> Manage thread</a></li>
-                        <li><a href="#"><i className="fa-solid fa-flag"></i> Report system</a></li>
-                    </ul>
-                </nav>
-            </header>
             <section className="create-thread">
                 <h1>Create new thread</h1>
                 <div className="manage-threads">

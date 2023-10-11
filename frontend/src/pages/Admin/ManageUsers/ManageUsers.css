@@ -1,0 +1,214 @@
+
+section.users-list {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgb(110, 110, 110);
+    background-color: rgb(31, 31, 31);
+}
+
+td img {
+    max-width: 50px;
+}
+
+div.search-bar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /*padding: 10px;*/
+}
+
+div.search-bar input {
+    width: 70%;
+    min-height: 40px;
+    border-radius: 10px;
+    outline: transparent;
+    padding-left: 30px;
+    background-color: transparent;
+    color: rgb(196, 196, 196);
+    border: 1px solid rgb(196, 196, 196);
+}
+
+div.search-bar i {
+    position: absolute;  /* Pozycjonuje ikonę względem kontenera .search-bar */
+    left: 20px;          /* Odstęp od lewej krawędzi kontenera */
+    top: 50%;            /* Ustawia ikonę na środku kontenera w pionie */
+    transform: translateY(-50%); /* Przesuwa ikonę o połowę jej wysokości w górę, aby była dokładnie wyśrodkowana */
+    pointer-events: none; /* Zapobiega interakcji z ikoną (kliknięcie, hover itp.) */
+}
+
+div.search-bar button {
+    margin-left: 10px;
+    background-color: transparent;
+    color: rgb(196, 196, 196);;
+    border: 1px solid rgb(196, 196, 196);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+div.list-of-users {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid rgb(110, 110, 110);
+}
+
+div.list-of-users div.avatar, div.list-of-users div.username, div.list-of-users div.email, div.list-of-users div.role, div.list-of-users div.action {
+    display: flex;
+    margin: 10px;
+
+}
+
+
+.avatar {
+    display: flex;           /* Ustawia elementy w poziomie obok siebie */
+    align-items: center;     /* Wyśrodkowuje elementy w pionie */
+    justify-content: center; /* Wyśrodkowuje elementy w poziomie */
+}
+
+div.list-of-users div.avatar img {
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 50%;
+}
+
+.single-user-avatar, .single-user-actions, .single-user-username, .single-user-email, .single-user-role {
+    margin-left: auto;
+}
+
+.admin-btn, .ban-btn {
+    padding: 5px 10px; /* Dodaje odstępy w przyciskach */
+    border: none; /* Usuwa obramowanie */
+    cursor: pointer; /* Kursor wskazuje, że przycisk jest klikalny */
+}
+
+.admin-btn {
+    background-color: #007BFF; /* Niebieski kolor tła */
+    color: white; /* Biały kolor tekstu */
+    margin-right: 5px;
+}
+
+.ban-btn {
+    background-color: #FF0000; /* Czerwony kolor tła */
+    color: white; /* Biały kolor tekstu */
+}
+
+table.users-table {
+    display: none;
+}
+
+
+
+@media (min-width: 768px) {
+
+    div.list-of-users {
+        padding: 20px;
+    }
+
+
+    div.list-of-users div.avatar img {
+        max-width: 40px;
+        max-height: 40px;
+        border-radius: 50%;
+    }
+
+}
+
+/*@media (min-width: 992px) {*/
+
+/*    .threads-container a {*/
+/*        min-width: 500px;*/
+/*        max-width: 630px;*/
+/*    }*/
+
+/*    section.users-list {*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    div.search-bar i {*/
+/*        left: 82px;          !* Odstęp od lewej krawędzi kontenera *!*/
+/*    }*/
+
+/*}*/
+
+@media (min-width: 992px) {
+
+    div.list-of-users {
+        display: none;
+    }
+
+    table.users-table {
+        display: table;
+    }
+    div.search-bar i {
+        left: 83px;          /* Odstęp od lewej krawędzi kontenera */
+    }
+    .users-table {
+        width: 100%;
+        margin-left: 35px;
+        margin-top: 20px;
+        border-collapse: collapse; /* Usuwa podwójne obramowanie */
+    }
+
+    .users-table th, .users-table td {
+        padding: 8px 12px; /* Dodaje odstępy w komórkach */
+        text-align: left; /* Wyrównuje tekst do lewej strony */
+        border: none; /* Usuwa obramowanie */
+    }
+
+    .avatar {
+        width: 50px; /* Przykładowa szerokość avatara */
+        height: 50px; /* Przykładowa wysokość avatara */
+        border-radius: 50%; /* Okrągły kształt avatara */
+    }
+
+    .admin-btn, .ban-btn {
+        padding: 5px 10px; /* Dodaje odstępy w przyciskach */
+        margin-right: 10px; /* Dodaje odstęp między przyciskami */
+        border: none; /* Usuwa obramowanie */
+        cursor: pointer; /* Kursor wskazuje, że przycisk jest klikalny */
+    }
+
+    .admin-btn {
+        background-color: #007BFF; /* Niebieski kolor tła */
+        color: white; /* Biały kolor tekstu */
+    }
+
+    .ban-btn {
+        background-color: #FF0000; /* Czerwony kolor tła */
+        color: white; /* Biały kolor tekstu */
+        margin-right: 15px;
+    }
+}
+
+@media (min-width: 120px) {
+    div.search-bar i {
+        left: 115px;          /* Odstęp od lewej krawędzi kontenera */
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: rgb(194, 194, 194);
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid rgb(149, 197, 101);
+    margin: 0 6px;
+}
+
+.pagination a.active {
+    background-color: rgb(149, 197, 101);
+    color: white;
+    border: 1px solid rgb(149, 197, 101);
+}
+
+.pagination a:hover:not(.active) {
+    background-color: rgba(149, 197, 101, 0.5);
+}

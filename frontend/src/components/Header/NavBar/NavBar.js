@@ -5,8 +5,8 @@ export const NavBar = props => {
 
     return (
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
+            <ul className='mainNav'>
+                <li className='firstLi'><a href="#">Home</a></li>
                 <li><a href="#">Forum</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Support</a></li>

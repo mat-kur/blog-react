@@ -1,0 +1,231 @@
+
+@media (min-width: 992px) {
+
+    body {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .threads-container a {
+        min-width: 500px;
+        max-width: 630px;
+    }
+
+}
+
+
+section.dashboard {
+    margin: 10px;
+    border: 1px solid rgb(110, 110, 110);;
+}
+
+.stats-container {
+    background-color: rgb(31, 31, 31);
+    width: 100%;
+    display: flex;
+    /*justify-content: center; !* Wyśrodkowanie zawartości w poziomie *!*/
+    align-items: center; /* Wyśrodkowanie zawartości w pionie */
+    flex-wrap: wrap; /* Pozwala na zawijanie elementów do nowej linii */
+    justify-content: space-between;
+}
+
+.count-user, .count-threads, .count-comments {
+    display: flex; /* Ustawienie elementów w poziomie obok siebie */
+    align-items: center;
+    /*justify-content: center;*/
+    background-color: rgb(43, 43, 43);
+    max-width: 150px;
+    padding: 30px; /* Wyśrodkowanie zawartości w pionie */
+    flex: 1; /* Każdy div zajmuje równą przestrzeń w poziomie */
+    margin: 10px; /* Dodaje odstępy między divami */
+    min-width: calc(50% - 20px);
+}
+
+.count-user i, .count-threads i, .count-comments i {
+    max-width: 30px;
+    min-width: 30px;
+    font-size: 20px;
+    color: rgb(186, 246, 127);;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*align-items: center;*/
+    /*flex-wrap: wrap;*/
+    margin-left: 10px;       /* Dodanie odstępu między ikoną a paragrafami */
+}
+
+.text-content p.users, .count-threads p.users, .count-comments p.users {
+    font-size: 11px;
+}
+
+
+section.last-comments, section.last-threads {
+    margin: 10px;
+    border: 1px solid rgb(110, 110, 110);;
+}
+
+section.last-comments h3, .last-threads h3 {
+    font-weight: 300;
+    padding: 10px;
+}
+
+.comments-container, .threads-container {
+    display: flex;
+    align-items: center;     /* Wyśrodkowanie zawartości w pionie */
+    justify-content: center;
+    background-color: rgb(31, 31, 31);
+    width: 100%;
+    padding: 10px;
+}
+
+.threads-container {
+    align-items: center;
+    justify-content: center;
+}
+
+.comments-container p.comment-content {
+    /*padding: 5px;*/
+    margin-left: 17px;
+}
+
+.comments-container .thread-link {
+    margin-left: 17px;
+    color: rgb(186, 246, 127);
+}
+
+.threads-container a {
+    max-width: 400px;
+    color: #98c3ea;
+    margin-left: 5px;
+}
+
+.threads-container p {
+    margin-left: auto;
+    /*max-width: 200px;*/
+}
+
+.comments-container a {
+    color: #cfdae3;
+}
+
+.threads-container p i {
+    color: rgb(186, 246, 127);
+}
+
+.comment-content-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.likes-thread {
+    min-width: 80px;
+}
+
+@media (min-width: 576px) {
+
+    .count-user i, .count-threads i, .count-comments i {
+        font-size: 24px;
+    }
+
+    section.dashboard {
+        margin: 20px;
+    }
+
+
+    .stats-container > div {
+        display: flex;
+    }
+
+    .fa-clipboard-list, .fa-comment, .fa-heart, .userIco {
+        flex-shrink: 0;
+        width: 24px;
+        margin-left: 50px;
+    }
+
+    .text-content {
+        flex-grow: 1;
+        margin-left: 10px;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+
+    .comment-content {
+        min-width: 650px;
+    }
+
+    .count-user i, .count-threads i, .count-comments i {
+        font-size: 26px;
+        margin-left: 90px;
+    }
+
+    .comments-container a {
+        margin-right: auto;
+    }
+
+    .fa-clipboard-list, .fa-comment, .fa-thumbs-up, .userIco {
+        flex-shrink: 0;
+        width: 1px;
+        margin-left: 50px;
+    }
+
+    .text-content {
+        flex-grow: 1;
+        margin-left: 10px;
+    }
+
+
+    section.last-comments, section.last-threads {
+        margin: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .test222 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .count-user i, .count-threads i, .count-comments i {
+        flex-shrink: 0;          /* Zapobiega zmniejszaniu się ikon */
+        width: 24px;             /* Przykładowa stała szerokość ikony */
+        text-align: center;
+        font-size: 26px;
+        margin-left: 10px;
+    }
+
+    ul li a{
+        display: flex;           /* Ustawia ikonę i tekst obok siebie w poziomie */
+        /*align-items: center;     !* Wyśrodkowuje ikonę i tekst w pionie *!*/
+        text-decoration: none;   /* Usuwa podkreślenie z linku */
+    }
+
+    .fa-dice-d6, .nav-users, .fa-list-ul, .fa-flag {
+        margin-right: 10px;      /* Dodaje odstęp między ikoną a tekstem */
+        flex-shrink: 0;
+    }
+
+    /*header {*/
+    /*    min-width: 300px;*/
+    /*    max-width: 20vw;*/
+    /*}*/
+
+    nav li {
+        justify-content: space-between;
+        margin: 0 10px;
+    }
+
+}
+
+/*@media (min-width: 1200px)*/
+/*nav li {*/
+/*    justify-content: space-between;*/
+/*    margin: 0 10px;*/
+/*}*/

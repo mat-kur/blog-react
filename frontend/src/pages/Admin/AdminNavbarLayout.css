@@ -1,0 +1,10 @@
+/* AdminNavbarLayout.css */
+.admin-layout {
+    display: flex;
+    height: 100vh; /* Zapewnia, że kontener rozciąga się na całą dostępną wysokość */
+}
+
+.admin-content {
+    flex-grow: 1; /* Zapewnia, że zawartość (Outlet) wypełnia dostępną przestrzeń */
+    /*overflow: auto; !* Dodaje przewijanie, jeśli zawartość przekracza dostępną wysokość *!*/
+}

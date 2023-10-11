@@ -1,16 +1,13 @@
 
 
 section.article-view, section.article-likes, section.form-comment, section.users-comments-top{
-
     background-color: rgb(31, 31, 31);
     margin: 20px 10px;
     padding: 10px;
     border-radius: 10px;
     overflow: hidden;
     font-size: 13px;
-
 }
-
 .wrapper-comments {
     background-color: rgb(31, 31, 31);
     margin: 20px 10px;
@@ -19,7 +16,6 @@ section.article-view, section.article-likes, section.form-comment, section.users
     overflow: hidden;
     font-size: 13px;
 }
-
 .comment-reply {
     display: flex;
     max-width: 90%;

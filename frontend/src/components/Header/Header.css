@@ -81,6 +81,7 @@ ul {
         position: static;
         flex-direction: row;
         min-height: 100%;
+        min-width: 1200px;
         background-color: #000000;
         justify-content: flex-start; /* Rozdziela tytuł i nawigację na dwie strony */
         align-items: center; /* Wyśrodkowuje elementy w pionie */
@@ -100,16 +101,15 @@ ul {
     ul {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
         list-style-type: none;
-        /*flex-grow: 1;*/
+        flex-grow: 1;
     }
 
 
-    nav li {
+    nav ul.mainNav li {
         justify-content: space-between;
-        margin: 0 40px; /* Dodaje margines między elementami listy */
+        margin-right: 50px;
     }
 
     nav ul li a:hover {
@@ -124,7 +124,7 @@ ul {
         font-size: 25px;
     }
 
-    nav ul li:first-of-type {
+    nav ul li.firstLi {
 
         margin-left: 100px;
         color: #ffffff;

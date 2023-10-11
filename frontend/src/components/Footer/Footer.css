@@ -1,0 +1,21 @@
+
+footer div.footer {
+    display: flex;
+    position: relative;
+    bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
+    margin-top: 20px;
+    background-color: rgb(43, 43, 43);
+}
+
+
+footer div.footer h3 {
+    font-weight: 300;
+    font-size: 16px;
+}
+
+footer div.footer h3 span {
+    color: rgb(149, 197, 101);
+}

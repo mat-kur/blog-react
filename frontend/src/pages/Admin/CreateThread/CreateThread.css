@@ -1,44 +1,3 @@
-header {
-    position: fixed;
-    display: none;
-    /*top: 0;*/
-    /*right: 0;*/
-    /*display: none;*/
-    /*padding: 10px;*/
-    min-height: 100vh;
-    background-color: #000000;
-}
-
-header h3.title-admin {
-    display: block;
-    font-weight: 300;
-    margin: 10px;
-    color: #ffffff;
-}
-
-header h3 .title-admin-span, ul li a i  {
-    color: rgb(186, 246, 127);
-}
-
-header ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-header ul li a {
-    margin: 0;
-    font-size: 16px;
-    text-decoration: none;
-    color: rgb(196, 196, 196);
-
-}
-
-header ul li {
-    margin-top: 20px;
-    list-style: none;
-}
 
 .admin-thread-wrapper {
     display: flex;
@@ -150,56 +109,6 @@ section.create-thread h1 {
 
     }
 
-    header {
-        display: flex;
-        flex-direction: column;
-        position: static;
-        min-width: 20vw;
-        /*justify-content: center;*/
-        align-items: center;
-        padding: 0px;
-        min-height: 100vh;
-        background-color: #000000;
-    }
-
-    header h3.title-admin {
-        display: block;
-        font-weight: 300;
-        margin: 20px;
-        color: #ffffff;
-    }
-
-    header h3 .title-admin-span, ul li a i  {
-        /*margin: -10px;*/
-        color: rgb(186, 246, 127);
-    }
-
-    header ul li a {
-        padding: 1px;
-    }
-
-    header ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    header ul li a {
-        margin: 10px;
-        font-size: 16px;
-        text-decoration: none;
-        color: rgb(196, 196, 196);
-
-    }
-
-    header ul li {
-        padding: 10px;
-        width: 100%;
-        margin-top: 20px;
-        list-style: none;
-    }
-
     .threads-container a {
         min-width: 500px;
         max-width: 630px;
@@ -215,13 +124,15 @@ section.create-thread h1 {
         background-color: rgb(25, 25, 25);
         border: 1px solid #3b3b3b;
         padding: 10px;
-        min-width: 100%;
+        min-width: 793px;
+        flex-grow: 1;
     }
 
     .thread-form-container form {
         display: flex;
         flex-direction: column;
         width: 100%;
+        flex-grow: 1;
     }
 
     .input-group {
@@ -269,22 +180,13 @@ section.create-thread h1 {
 
 @media (min-width: 1200px) {
 
-    header {
-        display: flex;
-        flex-direction: column;
-        position: static;
-        min-width: 250px;
-        max-width: 300px;
-        /*justify-content: center;*/
-        align-items: center;
-        padding: 0px;
-        min-height: 100vh;
-        background-color: #000000;
-    }
-
     section.create-thread h1 {
         font-weight: 300;
         margin: 20px;
+    }
+
+    li {
+        margin-bottom: 10px;
     }
 
     .thread-form-container {
@@ -293,7 +195,7 @@ section.create-thread h1 {
         border: 1px solid #3b3b3b;
         padding: 10px;
         margin-left: 60px;
-        min-width: 900px;;
+        min-width: 900px;
     }
 
     .thread-form-container form {
