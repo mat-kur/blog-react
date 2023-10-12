@@ -1,4 +1,4 @@
-
+import "./RightSide.css"
 
 export const RightSide = props => {
 

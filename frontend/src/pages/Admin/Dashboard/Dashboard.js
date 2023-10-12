@@ -80,19 +80,19 @@ export const Dashboard = props => {
                 <h3>Last news</h3>
                 <div className="threads-container">
                     <a href="#"> Lorem ipsum</a>
-                    <p className="likes-thread"><i className="fa-regular fa-heart"></i> 1000</p>
+                    <p className="likes-thread"><i className="heartIco fa-regular fa-heart"></i> 1000</p>
                 </div>
                 <div className="threads-container">
                     <a href="#"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, quidem.</a>
-                    <p className="likes-thread"><i className="fa-regular fa-heart"></i> 1000</p>
+                    <p className="likes-thread"><i className="heartIco fa-regular fa-heart"></i> 1000</p>
                 </div>
                 <div className="threads-container">
                     <a href="#"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, quidem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eveniet expedita, illo incidunt ipsa iure nobis omnis perspiciatis quis tempore!</a>
-                    <p className="likes-thread"><i class="fa-regular fa-heart"></i> 1000</p>
+                    <p className="likes-thread"><i class="heartIco fa-regular fa-heart"></i> 1000</p>
                 </div>
                 <div class="threads-container">
                     <a href="#"> Lorem ipsum dolor sit amet, consectetur adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, repudiandae. elit. Eligendi, quidem.</a>
-                    <p class="likes-thread"><i class="fa-regular fa-heart"></i> 1000</p>
+                    <p class="likes-thread"><i class="heartIco fa-regular fa-heart"></i> 1000</p>
                 </div>
                 <div class="threads-container">
                     <a href="#"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, quidem.</a>

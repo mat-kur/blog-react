@@ -8,7 +8,7 @@ export const Register = props => {
         <div className="bg">
         <h2>Register</h2>
         <div className="login-container">
-            <form>
+            <form className='register'>
                 <div className="icon-container">
                     <i className="fas fa-user"></i>
                     <input type="text" placeholder="Username" className="login-input" required></input>
@@ -28,5 +28,6 @@ export const Register = props => {
                 <a href="#" className="Login">Login panel</a>
             </form>
         </div>
-    </div>);
+    </div>
+    );
 };

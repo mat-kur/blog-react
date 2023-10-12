@@ -1,11 +1,15 @@
 section.left-side {
     background-color: rgb(43, 43, 43);
-    margin: 20px 30px 30px;
+    margin: 20px 10px 10px;
     border-radius: 10px;
     overflow: hidden;
+    /*width: 95%;*/
 
 }
 
+.right-wrapper {
+    max-width: 100%;
+}
 
 div.top {
 
@@ -138,6 +142,10 @@ div.activity .author, div.activity .likes {
 }
 
 @media (min-width: 992px) {
+
+    .right-wrapper {
+        max-width: 95%;
+    }
 
     div.top {
         justify-content: center;

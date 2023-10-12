@@ -140,7 +140,7 @@ section.last-comments h3, .last-threads h3 {
         display: flex;
     }
 
-    .fa-clipboard-list, .fa-comment, .fa-heart, .userIco {
+    .fa-clipboard-list, .fa-comment, .heartIco, .userIco {
         flex-shrink: 0;
         width: 24px;
         margin-left: 50px;

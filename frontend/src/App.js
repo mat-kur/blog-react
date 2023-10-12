@@ -26,7 +26,7 @@ function App() {
                 <Route path="/" element={<Home/>} exact/>
                 <Route path="/article-view/:id" element={<ArticleView/>}/>
                 <Route path="/login" element={<Login/>}/>
-                <Route path="/login" element={<Register/>}/>
+                <Route path="/register" element={<Register/>}/>
                 <Route path="admin/*" element={<AdminNavbarLayout/>}>
                     <Route path="create-thread" element={<CreateThread/>}/>
                     <Route path="dashboard" element={<Dashboard/>}/>
