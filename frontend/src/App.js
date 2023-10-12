@@ -12,26 +12,66 @@ import {ReportSystem} from "./pages/Admin/ReportSystem/ReportSystem";
 import {Login} from "./pages/Login/Login";
 import {Footer} from "./components/Footer/Footer";
 import {Register} from "./pages/Register/Register";
+import {useEffect, useState} from "react";
+import {Auth} from "./PrivateRoute/PrivateRoute";
+import {AuthLogInUser} from "./PrivateRoute/LogInRedirect";
 
 
 function App() {
     const location = useLocation();
     const isAdminRoute = location.pathname.startsWith('/admin');
 
+    const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        // Pobranie informacji o zalogowanym użytkowniku po załadowaniu komponentu
+        fetch("http://localhost:5000/isUserLogged", {
+            method: "GET",
+            credentials: "include",
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setUser(data)
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, [user]);
+
     return (
         <div className="App">
             {!isAdminRoute && <Header/>}
             <Routes>
                 <Route path="/" element={<Home/>} exact/>
-                <Route path="/article-view/:id" element={<ArticleView/>}/>
-                <Route path="/login" element={<Login/>}/>
+                <Route path="/article-view/:id" element={<ArticleView setUser={setUser} user={user} />}/>
+                <Route path="/login" element={
+                    <AuthLogInUser user={user}>
+                        <Login setUser={setUser}
+                               user={user} />
+                    </AuthLogInUser>}
+                />
                 <Route path="/register" element={<Register/>}/>
                 <Route path="admin/*" element={<AdminNavbarLayout/>}>
-                    <Route path="create-thread" element={<CreateThread/>}/>
-                    <Route path="dashboard" element={<Dashboard/>}/>
-                    <Route path="manage-thread" element={<ManageThread/>}/>
-                    <Route path="manage-users" element={<ManageUsers/>}/>
-                    <Route path="report-system" element={<ReportSystem/>}/>
+                        <Route path="create-thread" element={
+                            <Auth user={user}>
+                                <CreateThread/>
+                            </Auth>}/>
+                        <Route path="dashboard" element={
+                            <Auth user={user}>
+                                <Dashboard/>
+                            </Auth>}/>
+                        <Route path="manage-thread" element={
+                            <Auth user={user}>
+                            <ManageThread/>
+                            </Auth>}/>
+                        <Route path="manage-users" element={
+                            <Auth user={user}>
+                                <ManageUsers/>
+                            </Auth>}/>
+                        <Route path="report-system" element={
+                            <Auth user={user}>
+                                <ReportSystem/>
+                            </Auth>}/>
                 </Route>
             </Routes>
             {!isAdminRoute && <Footer/>}

@@ -1,5 +1,6 @@
 import "./LeftSide.css";
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 
 export const LeftSide = props => {
     const [selectedTag, setSelectedTag] = useState(null);
@@ -52,9 +53,9 @@ export const LeftSide = props => {
                             </div>
                             <div className="tags">
                                 {thread.tags.map(tag => (
-                                    <li key={tag} onClick={() => threads.length && handleTagClick(tag)}>
+                                    <a key={tag} onClick={() => threads.length && handleTagClick(tag)}>
                                         {tag}
-                                    </li>
+                                    </a>
                                 ))}
                             </div>
                             <div className="content">
@@ -77,9 +78,9 @@ export const LeftSide = props => {
                         </div>
                         <div className="tags">
                             {thread.tags.map(tag => (
-                                <li key={tag} onClick={() => threads.length && handleTagClick(tag)}>
+                                <a key={tag} onClick={() => threads.length && handleTagClick(tag)}>
                                     {tag}
-                                </li>
+                                </a>
                             ))}
                         </div>
                         <div className="content">

@@ -14,7 +14,6 @@ div.newest-posts {
 
 div.newest-posts div.container {
     display: flex;
-
 }
 
 div.img img{
@@ -41,6 +40,7 @@ div.news p {
     font-size: 11px;
     margin-top: 5px;
 }
+
 
 div.title-h3 {
     display: flex;
@@ -187,10 +187,9 @@ div.top-news p {
 
     div.newest-posts {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
     }
 
     div.top-news {
@@ -205,6 +204,10 @@ div.top-news p {
     section.left-side {
         display: flex;
         flex-direction: column;
+    }
+
+    section.right-side {
+        max-width: 80%;
     }
 
     main {
@@ -243,4 +246,11 @@ div.top-news p {
 
     }
 
+
 }
+
+/*.news {*/
+/*    padding: 100px;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/

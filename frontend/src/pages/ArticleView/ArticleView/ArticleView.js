@@ -92,6 +92,8 @@ export const ArticleView = ({user}) => {
         return false;
     };
 
+    console.log(singleThreadData)
+
 
 
     const likeButtonColor = {
@@ -118,7 +120,7 @@ export const ArticleView = ({user}) => {
                     </p>
                 </div>
                 <div className="article-activity">
-                    <p className="author"><i className="fa-regular fa-user"></i> {singleThreadData.author}</p>
+                    <p className="author"><i className="fa-regular fa-user"></i> {singleThreadData.author?.username}</p>
                     {user === null || Object.keys(user).length === 0 ? null : (
                     <p onClick={sendUsersLike} style={likeButtonColor} className="likes"><i className="fa-regular fa-heart"></i></p>
                     )}
@@ -134,7 +136,7 @@ export const ArticleView = ({user}) => {
                     {(!isActive &&
                     <ul>
                         {usersLike.map(userName=> (
-                        <li><Link to={`/user-profile/${userName.id}`}>{userName.username},</Link></li>
+                        <li key={userName.id}><Link to={`/user-profile/${userName.id}`}>{userName.username},</Link></li>
                         ))}
                     </ul>
                     )}
