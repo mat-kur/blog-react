@@ -3,15 +3,107 @@ import "./ArticleView.css"
 import React from 'react';
 import {UsersComments} from "./UsersComments/UsersComments";
 import {FormComment} from "./FormComment/FormComment";
+import {useEffect, useState} from "react";
+import {useParams, useLocation, Link} from 'react-router-dom';
 
 
-export const ArticleView = props => {
+
+export const ArticleView = ({user}) => {
+
+    const {id} = useParams();
+    const [isActive, setIsActive] = useState(true)
+    const [singleThreadData, setSingleThreadData] = useState([])
+    const [userComments, setUserComments] = useState([])
+    const [usersLike, setUsersLike] = useState([])
+    const [topComment, setTopComment] = useState(null)
+
+    const [currentPage, setCurrentPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
+
+    const URL = `http://localhost:5000/article-view/${id}?page=${currentPage}`
+
+    useEffect(() => {
+        const fetchDataFromBack = async () => {
+            if (currentPage !== null) {
+                await fetch(URL)
+                    .then(response => response.json())
+                    .then(data => {
+                        setTopComment(data.data.comments)
+                        setUserComments(data.data1)
+                        setSingleThreadData(data.data);
+                        setUsersLike(data.usersWhoLiked)
+                        setCurrentPage(data.currentPage);
+                        setTotalPages(data.totalPages);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        }
+
+        fetchDataFromBack()
+    }, [currentPage]);
+
+
+    useEffect(() => {
+        // console.log(user);
+    }, [user]);
+
+    const sendUsersLike = async () => {
+        if (user) {
+            console.log(user)
+
+
+            const userLike = await fetch(`http://localhost:5000/article-view/like/${id}`, {
+                method: 'POST',
+                credentials: "include",
+                body: JSON.stringify({
+                    user: user.user._id,
+                    threadId: id
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error("Wystąpił błąd podczas wysyłania");
+                    }
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
+            userLike();
+        } else {
+            return null
+        }
+    };
+
+    const showWhoLikedArticle = () => {
+        isActive === false ? setIsActive(true) : setIsActive(false)
+    }
+
+    const isUserLiked = () => {
+        if (user && user.user && user.user._id) {
+            return usersLike.some((likedUser) => likedUser.id === user.user._id);
+        }
+        return false;
+    };
+
+
+
+    const likeButtonColor = {
+        color: isUserLiked() ? '#53a48a' : '#7ec8fd',
+    };
+
     return (
         <>
             <section className="article-view">
                 <div className="article-info">
                     <img src="./0f8b2870896edcde8f6149fe2733faaf.jpg" alt=""></img>
-                        <h3>Register & Login form Design fdasjfhdsahfk fashdkjfhksda fhjksafhksda</h3>
+                        <h3>{singleThreadData.title}</h3>
                 </div>
                 <div className="article-tags">
                     <a href="">#coderz</a>
@@ -22,67 +114,40 @@ export const ArticleView = props => {
                 </div>
                 <div className="article-content">
                     <p className="article-content-par">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus.
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias esse iusto necessitatibus nemo
-                        nihil officiis pariatur quas quidem voluptas! Sed.
-                    </p>
-
-
-                    <p className="article-content-par">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque doloremque eaque modi nihil
-                        nostrum repellendus! Accusamus at excepturi expedita facere, inventore numquam praesentium
-                        provident quisquam rem sunt voluptates voluptatum? Adipisci atque eveniet exercitationem natus.
-                        Doloremque dolorum explicabo, fugiat ipsa nulla odio suscipit. Ad adipisci aut expedita
-                        laboriosam praesentium quod vel?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias esse iusto necessitatibus nemo
-                        nihil officiis pariatur quas quidem voluptas! Sed.
-                    </p>
-                    <p className="article-content-par">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus.
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias esse iusto necessitatibus nemo
-                        nihil officiis pariatur quas quidem voluptas! Sed.
-                    </p>
-
-                    <p className="article-content-par">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus.
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias esse iusto necessitatibus nemo
-                        nihil officiis pariatur quas quidem voluptas! Sed.
+                        {singleThreadData.description}
                     </p>
                 </div>
                 <div className="article-activity">
-                    <p className="author"><i className="fa-regular fa-user"></i> MatKur</p>
-                    <p className="likes"><i className="fa-regular fa-heart"></i> 1000</p>
+                    <p className="author"><i className="fa-regular fa-user"></i> {singleThreadData.author}</p>
+                    {user === null || Object.keys(user).length === 0 ? null : (
+                    <p onClick={sendUsersLike} style={likeButtonColor} className="likes"><i className="fa-regular fa-heart"></i></p>
+                    )}
                 </div>
             </section>
+            {usersLike.length > 0 ?
             <section className="article-likes">
                 <div>
-                    <p>This thread has been liked by:</p>
-                    <button><i className="fa-solid fa-arrow-down"></i></button>
+                    <p>This thread has been liked by {usersLike.length} users:</p>
+                    <button onClick={showWhoLikedArticle}>{isActive ? "SHOW" : "HIDE"}><i className="fa-solid fa-arrow-down"></i></button>
                 </div>
                 <div className="users-like-thread">
+                    {(!isActive &&
                     <ul>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
-                        <li><a href="">Admin,</a></li>
+                        {usersLike.map(userName=> (
+                        <li><Link to={`/user-profile/${userName.id}`}>{userName.username},</Link></li>
+                        ))}
                     </ul>
+                    )}
                 </div>
             </section>
+                : "No likes yet"}
             <FormComment/>
-            <UsersComments/>
+            <UsersComments userComments={userComments}
+                           setUserComments={setUserComments}
+                           user={user} currentPage={currentPage}
+                           totalPages={totalPages}
+                           setCurrentPage={setCurrentPage}
+                           topComment={topComment}/>
         </>
     );
 }

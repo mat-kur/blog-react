@@ -1,36 +1,114 @@
-import React from "react";
+import React, {useState} from "react";
+import {TopComment} from "./TopComment/TopComment";
+import {useParams} from "react-router";
 
 
 
 export const UsersComments = props => {
 
 
+
+    const {id} = useParams();
+    const [comment, setComment,] = useState('')
+
+    const {userComments, user, setUserComments, totalPages, currentPage, setCurrentPage, topComment} = props
+
+    const URL = `http://localhost:5000/article-view/${id}`
+
+    const pages = new Array(totalPages).fill(null).map((v, i) => i)
+
+    const sendForm = async e => {
+        e.preventDefault()
+        await fetch(`http://localhost:5000/article-view/${id}`, {
+            method: 'POST',
+            credentials: "include",
+            body: JSON.stringify({
+                comment
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => {
+                if (response.ok) {
+                    setComment('')
+                    return response.json();
+                } else {
+                    throw new Error("Wystąpił błąd podczas logowania");
+                }
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    };
+
+    const userDeleteComment = async (commentID, userID) => {
+
+
+        await fetch(`http://localhost:5000/article-view/user-delete-comment/${id}`, {
+            method: 'POST',
+            credentials: "include",
+            body: JSON.stringify({
+                commentID,
+                userID
+
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then(async (response) => {
+                if (response.ok) {
+                    await fetch(URL)
+                        .then(response => response.json())
+                        .then(data => {
+                            setUserComments(data.data.comments)
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
+
+                } else {
+                    throw new Error("Wystąpił błąd serwera");
+                }
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+
+
+    }
+
+    const handleCommentLike = async (commentID, userID, userSessionID)  => {
+
+        await fetch(`http://localhost:5000/article-view/user-like-comment/${id}`, {
+            method: 'POST',
+            credentials: "include",
+            body: JSON.stringify({
+                commentID,
+                userID,
+                userSessionID
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => {
+                if (response.ok) {
+                    setComment('')
+                    return response.json();
+                } else {
+                    throw new Error("Wystąpił błąd podczas logowania");
+                }
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    };
+
     return (
         <>
-            <section className="users-comments-top">
-                <h3>TOP COMMENT</h3>
-                <div className="likes-activity">
-                    <p className="comment-likes">Likes: 10</p>
-                    <p className="date-clock"><i className="fa-regular fa-clock"></i> 11.09.2023</p>
-                </div>
-                <div className="top-comment">
-                    <div>
-                        <img src="./default-avatar.jpg" alt=""></img>
-                        <a href="#">Admin</a>
-                    </div>
-                    <p className="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eum
-                        harum necessitatibus tempore. Cum deserunt exercitationem facere, illo nam non nulla optio
-                        praesentium, quisquam reiciendis reprehenderit sed sunt suscipit! Animi.</p>
-                </div>
-                <div className="comment-activity">
-                    <i className="fa-solid fa-pencil"></i>
-                    <i className="fa-solid fa-trash"></i>
-                    <i className="fa-solid fa-reply"></i>
-                    <i className="fa-solid fa-flag"></i>
-                    <i className="fa-regular fa-heart"></i>
-                </div>
-            </section>
-
+            <TopComment userComments={topComment}/>
             <section className="users-comments">
                 <div className="wrapper-comments">
 

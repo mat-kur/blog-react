@@ -16,7 +16,6 @@ import {Register} from "./pages/Register/Register";
 
 function App() {
     const location = useLocation();
-
     const isAdminRoute = location.pathname.startsWith('/admin');
 
     return (
