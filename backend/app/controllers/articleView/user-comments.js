@@ -29,7 +29,7 @@ class UserComments {
                 {_id: req.session.user._id},
                 {$inc: {commentNumber: +1}}
             );
-            const thread = await Thread.findById({_id: req.params.id})
+            const thread = await Thread.findById({_id: req.params.id}).sort({ _id: -1 })
             thread.comments.push(comment)
 
             try {

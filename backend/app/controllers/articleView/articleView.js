@@ -17,13 +17,13 @@ class ArticleView {
                 data1 = await Comment.find({thread: threadId})
                     .populate('author', 'username avatar')
                     .populate('reportApprover', 'username avatar')
-                    .sort({ _id: -1 })
+                    .sort({ _id: 1 })
                     .limit(perPage);
             } else {
                 data1 = await Comment.find({thread: threadId})
                     .populate('author', 'username avatar')
                     .populate('reportApprover', 'username avatar')
-                    .sort({ _id: -1 })
+                    .sort({ _id: 1 })
                     .skip((currentPage - 1) * perPage)
                     .limit(perPage);
             }

@@ -40,7 +40,7 @@ function App() {
 
     return (
         <div className="App">
-            {!isAdminRoute && <Header/>}
+            {!isAdminRoute && <Header setUser={setUser} user={user}/>}
             <Routes>
                 <Route path="/" element={<Home/>} exact/>
                 <Route path="/article-view/:id" element={<ArticleView setUser={setUser} user={user} />}/>

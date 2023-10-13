@@ -73,8 +73,13 @@ section.form-comment div.form {
 
 section.form-comment div.form form {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.form-group {
+    display: flex;
+}
 
 section.form-comment div.form form textarea {
 

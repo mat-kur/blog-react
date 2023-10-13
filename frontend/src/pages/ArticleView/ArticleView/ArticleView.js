@@ -92,9 +92,6 @@ export const ArticleView = ({user}) => {
         return false;
     };
 
-    console.log(singleThreadData)
-
-
 
     const likeButtonColor = {
         color: isUserLiked() ? '#53a48a' : '#7ec8fd',
@@ -143,7 +140,7 @@ export const ArticleView = ({user}) => {
                 </div>
             </section>
                 : "No likes yet"}
-            <FormComment/>
+            <FormComment user={user}/>
             <UsersComments userComments={userComments}
                            setUserComments={setUserComments}
                            user={user} currentPage={currentPage}

@@ -135,6 +135,15 @@ ul {
 }
 
 
+.btn-logout {
+    background-color: transparent;
+    border: none;
+}
+
+.user-name {
+    color: #13f35d;
+}
+
 
 /*_______________________________
 End of header and nav bar
