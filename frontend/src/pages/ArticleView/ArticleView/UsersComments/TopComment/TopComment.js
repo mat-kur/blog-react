@@ -40,13 +40,13 @@ export const TopComment = ({userComments}) => {
                 </div>
                 <p className="content">{topComment.description}</p>
             </div>
-            <div className="comment-activity">
-                <i className="fa-solid fa-pencil"></i>
-                <i className="fa-solid fa-trash"></i>
-                <i className="fa-solid fa-reply"></i>
-                <i className="fa-solid fa-flag"></i>
-                <i className="fa-regular fa-heart"></i>
-            </div>
+            {/*<div className="comment-activity">*/}
+            {/*    <i className="fa-solid fa-pencil"></i>*/}
+            {/*    <i className="fa-solid fa-trash"></i>*/}
+            {/*    <i className="fa-solid fa-reply"></i>*/}
+            {/*    <i className="fa-solid fa-flag"></i>*/}
+            {/*    <i className="fa-regular fa-heart"></i>*/}
+            {/*</div>*/}
         </section>
         )}
         </>

@@ -193,10 +193,9 @@ export const UsersComments = props => {
                                     (user.user._id !== userComment.author._id) &&
                                     (
                                         <>
-                                            <i className="fa-solid fa-reply" onClick={() => activeFormReply(userComment._id)}></i>
-
+                                            <i className="replyIcon fa-solid fa-reply" onClick={() => activeFormReply(userComment._id)}></i>
                                             <ReportComment commentID={userComment._id} userID={user.user._id} userComments={userComments} authorOfComment={userComment.author.username} />
-                                            <i onClick={() => handleCommentLike(userComment._id, userComment.author._id, user.user._id)} className="fa-regular fa-heart"></i>
+                                            <i onClick={() => handleCommentLike(userComment._id, userComment.author._id, user.user._id)} className={userComment.likedBy.includes(user.user._id) ? "heart-liked-comment fa-solid fa-heart" : "non-liked-comment fa-solid fa-heart"}></i>
                                         </>
                                     )
                                 }
@@ -218,13 +217,13 @@ export const UsersComments = props => {
             ) : (
                 <p>No comments yet!</p>
             )}
+            <div className="pagination">
             {pages.map((pageIndex) => (
-                <div key={pageIndex + 1} className="pagination">
                     <a onClick={() => setCurrentPage(pageIndex + 1)}>
                         {pageIndex + 1}
                     </a>
-                </div>
             ))}
+            </div>
 
         </>
     );

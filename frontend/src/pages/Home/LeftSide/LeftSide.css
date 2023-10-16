@@ -1,5 +1,5 @@
 section.left-side {
-    background-color: rgb(43, 43, 43);
+    background-color: rgb(31, 31, 31);
     margin: 20px 10px 10px;
     border-radius: 10px;
     overflow: hidden;
@@ -10,11 +10,10 @@ section.left-side {
 }
 
 div.top {
-
     display: flex;
     align-items: center;
     height: 100%;
-    background-color: rgb(43, 43, 43);
+    background-color: rgb(31, 31, 31);
 }
 
 div.top h2 {
@@ -42,7 +41,7 @@ div.tags {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: rgb(43, 43, 43);
+    background-color: rgb(31, 31, 31);
 }
 
 div.tags a {
@@ -62,7 +61,7 @@ div.content {
     padding: 15px;
     margin: 8px 10px;
     border-radius: 15px;
-    background-color: rgb(59, 59, 59);
+    background-color: rgb(43, 43, 43);
 }
 
 div.content p {
@@ -86,7 +85,7 @@ div.activity {
     padding: 10px;
     display: flex;
     margin-left: auto;
-    background-color: rgb(43, 43, 43);
+    background-color: rgb(31, 31, 31);
 }
 
 div.activity .author {

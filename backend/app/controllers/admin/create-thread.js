@@ -10,6 +10,8 @@ function getFullDate() {
 class CreateThread {
     async createThread (req, res) {
 
+
+        console.log(req.session.user)
         if (req.session.user.isAdmin) {
 
             const { tags } = req.body

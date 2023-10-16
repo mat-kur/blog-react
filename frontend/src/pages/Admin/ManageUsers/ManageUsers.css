@@ -10,6 +10,17 @@ td img {
     max-width: 50px;
 }
 
+.buttons-container {
+    display: flex;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 99999;
+}
+
 div.search-bar {
     position: relative;
     display: flex;
@@ -211,4 +222,53 @@ table.users-table {
 
 .pagination a:hover:not(.active) {
     background-color: rgba(149, 197, 101, 0.5);
+}
+
+
+.popup {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.popup-content {
+    background: rgb(31, 31, 31);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.yes-button, .no-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.yes-button {
+    background-color: green;
+    color: white;
+}
+.no-button {
+    background-color: red;
+    color: white;
+}
+
+.buttons-paragraph {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 300;
 }

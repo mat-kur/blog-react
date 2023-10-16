@@ -93,9 +93,8 @@ export const ArticleView = ({user}) => {
     };
 
 
-    const likeButtonColor = {
-        color: isUserLiked() ? '#53a48a' : '#7ec8fd',
-    };
+    const likeButtonColor = isUserLiked() ? "heart-liked fa-solid fa-heart" : "non-liked fa-regular fa-heart";
+
 
     return (
         <>
@@ -104,30 +103,34 @@ export const ArticleView = ({user}) => {
                     <img src="./0f8b2870896edcde8f6149fe2733faaf.jpg" alt=""></img>
                         <h3>{singleThreadData.title}</h3>
                 </div>
-                <div className="article-tags">
-                    <a href="">#coderz</a>
-                    <a href="">#programowanie</a>
-                    <a href="">#python</a>
-                    <a href="">#webdesign</a>
-                    <a href="">#duczkiBest</a>
-                </div>
+                {singleThreadData.tags && singleThreadData.tags.length > 0 && (
+                    <div className="article-tags">
+                        {singleThreadData.tags.map(tag => (
+                            <a key={tag}>
+                                {tag}
+                            </a>
+                        ))}
+                    </div>
+                )}
                 <div className="article-content">
                     <p className="article-content-par">
                         {singleThreadData.description}
                     </p>
                 </div>
+
                 <div className="article-activity">
                     <p className="author"><i className="fa-regular fa-user"></i> {singleThreadData.author?.username}</p>
-                    {user === null || Object.keys(user).length === 0 ? null : (
-                    <p onClick={sendUsersLike} style={likeButtonColor} className="likes"><i className="fa-regular fa-heart"></i></p>
+                    {user === null || Object.keys(user).length === 0 ? null :
+                        (<p onClick={sendUsersLike} className="border-test"><i className={`${likeButtonColor}`}></i></p>
                     )}
                 </div>
+
             </section>
             {usersLike.length > 0 ?
             <section className="article-likes">
                 <div>
                     <p>This thread has been liked by {usersLike.length} users:</p>
-                    <button onClick={showWhoLikedArticle}>{isActive ? "SHOW" : "HIDE"}><i className="fa-solid fa-arrow-down"></i></button>
+                    <button onClick={showWhoLikedArticle}>{isActive ? <i className="fa-solid fa-arrow-down"></i> : <i className="fa-solid fa-arrow-up"></i>}</button>
                 </div>
                 <div className="users-like-thread">
                     {(!isActive &&

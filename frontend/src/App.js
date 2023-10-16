@@ -66,7 +66,7 @@ function App() {
                             </Auth>}/>
                         <Route path="manage-users" element={
                             <Auth user={user}>
-                                <ManageUsers/>
+                                <ManageUsers user={user}/>
                             </Auth>}/>
                         <Route path="report-system" element={
                             <Auth user={user}>

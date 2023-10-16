@@ -5,8 +5,9 @@ class ThreadList {
 
     async deleteThread (req, res) {
         const {id} = req.body
+        console.log(req.session)
 
-        if (req.session.user.isAdmin) {
+        if (req.session.user?.isAdmin) {
 
             try {
                 await Thread.deleteOne({_id: id});
@@ -16,7 +17,7 @@ class ThreadList {
                 res.status(500).json({message: 'Wystąpił błąd serwera.'});
             }
         } else {
-            throw new Error("You have no admin role");
+            console.log('You have no admin role')
         }
     }
 

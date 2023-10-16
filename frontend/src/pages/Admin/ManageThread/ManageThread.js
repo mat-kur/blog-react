@@ -56,7 +56,7 @@ export const ManageThread = props => {
                     <button className="submit">SEARCH</button>
             </div>
             <div className="new-thread">
-                <button className="new-btn">NEW THREAD</button>
+                <button className="new-btn"><Link className="admin-thread-link" to='/admin/create-thread'>NEW THREAD </Link></button>
             </div>
             {threadList && threadList.map(thread => (
             <div key={thread._id} className="list-of-users">

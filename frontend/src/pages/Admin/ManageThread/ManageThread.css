@@ -325,3 +325,8 @@ table.users-table {
 .pagination a:hover:not(.active) {
     background-color: rgba(149, 197, 101, 0.5);
 }
+
+.admin-thread-link {
+    color: #ffffff;
+    text-decoration: none;
+}

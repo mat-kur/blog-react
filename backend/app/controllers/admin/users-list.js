@@ -87,14 +87,15 @@ class UsersActions {
     }
 
     async banUser (req, res) {
-
+        console.log('ban')
         const { userID, userAdminID } = req.body
 
         const singleUser = await User.findById(userID)
         const adminUser = await User.findById(userAdminID)
         if (!singleUser) return res.status(404).send('Document not found')
-
+        console.log('ban')
         async function setAdmin () {
+            console.log('ban')
             if (!singleUser.banned) {
                 singleUser.banned = 1
                 await singleUser.save()
