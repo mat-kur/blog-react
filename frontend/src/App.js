@@ -62,7 +62,7 @@ function App() {
                             </Auth>}/>
                         <Route path="manage-thread" element={
                             <Auth user={user}>
-                            <ManageThread/>
+                            <ManageThread user={user}/>
                             </Auth>}/>
                         <Route path="manage-users" element={
                             <Auth user={user}>

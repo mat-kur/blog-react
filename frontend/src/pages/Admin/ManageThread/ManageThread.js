@@ -3,10 +3,12 @@ import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 
-export const ManageThread = props => {
+export const ManageThread = ({user}) => {
 
     const [threadList, setThreadList] = useState([])
     const [status, setStatus] = useState()
+
+    // console.log(user.user._id)
 
     useEffect(() => {
         const fetchDataFromBack = async () => {
@@ -25,11 +27,12 @@ export const ManageThread = props => {
         fetchDataFromBack()
     }, []);
 
-    const deleteThread = (id) => {
+    const deleteThread = (id, userID) => {
         fetch('http://localhost:5000/admin/delete-thread', {
             method: 'POST',
             body: JSON.stringify({
                 id: id,
+                userID: userID,
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -79,7 +82,7 @@ export const ManageThread = props => {
                 <div className="action">
                     <p>Actions: </p>
                     <button className="single-user-actions edit-btn"><Link to={`/admin/edit-thread/${thread._id}`}/>EDIT</button>
-                    <button onClick={() => deleteThread(thread._id)} className="ban-btn">DELETE</button>
+                    <button onClick={() => deleteThread(thread._id, user.user._id)} className="ban-btn">DELETE</button>
                 </div>
             </div>
             ))}
@@ -103,7 +106,7 @@ export const ManageThread = props => {
                     <td>{thread.author.username}</td>
                     <td>
                         <button className="single-user-actions edit-btn"><Link to={`/admin/edit-thread/${thread._id}`}/>EDIT</button>
-                        <button onClick={() => deleteThread(thread._id)} className="ban-btn">DELETE</button>
+                        <button onClick={() => deleteThread(thread._id, user.user._id)} className="ban-btn">DELETE</button>
                     </td>
                 </tr>
                 ))}
