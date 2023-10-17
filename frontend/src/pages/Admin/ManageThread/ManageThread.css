@@ -47,9 +47,9 @@ div.search-bar input {
 }
 
 div.search-bar i {
-    position: absolute;  /* Pozycjonuje ikonę względem kontenera .search-bar */
-    left: 20px;          /* Odstęp od lewej krawędzi kontenera */
-    top: 50%;            /* Ustawia ikonę na środku kontenera w pionie */
+    position: absolute; /* Pozycjonuje ikonę względem kontenera .search-bar */
+    left: 20px; /* Odstęp od lewej krawędzi kontenera */
+    top: 50%; /* Ustawia ikonę na środku kontenera w pionie */
     transform: translateY(-50%); /* Przesuwa ikonę o połowę jej wysokości w górę, aby była dokładnie wyśrodkowana */
     pointer-events: none; /* Zapobiega interakcji z ikoną (kliknięcie, hover itp.) */
 }
@@ -79,8 +79,8 @@ div.list-of-users div.avatar, div.list-of-users div.username, div.list-of-users 
 
 
 .avatar {
-    display: flex;           /* Ustawia elementy w poziomie obok siebie */
-    align-items: center;     /* Wyśrodkowuje elementy w pionie */
+    display: flex; /* Ustawia elementy w poziomie obok siebie */
+    align-items: center; /* Wyśrodkowuje elementy w pionie */
     justify-content: center; /* Wyśrodkowuje elementy w poziomie */
 }
 
@@ -129,16 +129,15 @@ table.users-table {
 }
 
 
-
 @media (min-width: 768px) {
 
     /*table.users-table {*/
     /*    display: none;*/
     /*}*/
-
     div.list-of-users {
         padding: 20px;
     }
+
     div.search-bar i {
         left: 11%;
         top: 50%;
@@ -158,27 +157,20 @@ table.users-table {
     /*table.users-table {*/
     /*    display: none;*/
     /*}*/
-
     /*body {*/
     /*    display: flex;*/
     /*    flex-direction: row;*/
-
     /*}*/
-
     /*.threads-container a {*/
     /*    min-width: 500px;*/
     /*    max-width: 630px;*/
     /*}*/
-
     /*section.users-list {*/
     /*    width: 100%;*/
     /*}*/
-
-    /*div.search-bar i {*/
-    /*    left: 82px;          !* Odstęp od lewej krawędzi kontenera *!*/
-    /*}*/
-
-
+    div.search-bar i {
+        left: 12% /* Odstęp od lewej krawędzi kontenera */
+    }
 
 
     div.list-of-users {
@@ -188,8 +180,9 @@ table.users-table {
     table.users-table {
         display: table;
     }
+
     div.search-bar i {
-        left: 83px;          /* Odstęp od lewej krawędzi kontenera */
+        left: 83px; /* Odstęp od lewej krawędzi kontenera */
     }
 
     .users-table {
@@ -236,7 +229,6 @@ table.users-table {
     /*    display: flex;*/
     /*    justify-content: center;*/
     /*}*/
-
     .users-list {
         display: flex;
         flex-direction: column;
@@ -252,8 +244,9 @@ table.users-table {
     table.users-table {
         display: table;
     }
-    div.search-bar i {
-        left: 116px;          /* Odstęp od lewej krawędzi kontenera */
+
+    div.search-bar .searchIco {
+        left: 12%; /* Odstęp od lewej krawędzi kontenera */
     }
 
     .users-table {
@@ -296,8 +289,6 @@ table.users-table {
 
 
 }
-
-
 
 
 .pagination {

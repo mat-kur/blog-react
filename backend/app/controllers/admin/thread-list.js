@@ -21,6 +21,56 @@ class ThreadList {
         }
 
     }
+
+    async sendThreadLists(req, res) {
+
+        const query = req.query.q;
+        const perPage = 4;
+        const currentPage = parseInt(req.query.page) || 1;
+
+        try {
+            let threadsList;
+            const totalCount = await Thread.countDocuments();
+            const totalPages = Math.ceil(totalCount / perPage);
+
+            if (currentPage === 1) {
+                threadsList = await Thread.find({
+                    title: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
+                })
+                    .select('-password -posts -email -commentNumber')
+                    .sort({ _id: -1 })
+                    .limit(perPage);
+
+            } else {
+                threadsList = await Thread.find({
+                    title: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
+                })
+                    .select('-password -posts -email -commentNumber')
+                    .sort({ _id: -1 })
+                    .skip((currentPage - 1) * perPage)
+                    .limit(perPage);
+
+
+            }
+            if (threadsList.length === 0) {
+                return res.json({
+                    threadsList: [],
+                    currentPage: 1,
+                    totalPages: 0
+                });
+            }
+            res.json({
+                threadsList,
+                    currentPage,
+                    totalPages
+                }
+            )
+        } catch (e) {
+            console.error("Error in sendThreadList:", e)
+            res.status(500).send('Internal Server Error')
+
+        }
+    }
 }
 
 

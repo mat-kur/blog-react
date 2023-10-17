@@ -7,7 +7,6 @@ import {useEffect, useState} from "react";
 import {useParams, useLocation, Link} from 'react-router-dom';
 
 
-
 export const ArticleView = ({user}) => {
 
     const {id} = useParams();

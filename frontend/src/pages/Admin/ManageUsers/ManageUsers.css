@@ -41,7 +41,7 @@ div.search-bar input {
 
 div.search-bar i {
     position: absolute;  /* Pozycjonuje ikonę względem kontenera .search-bar */
-    left: 20px;          /* Odstęp od lewej krawędzi kontenera */
+    left: 200px;          /* Odstęp od lewej krawędzi kontenera */
     top: 50%;            /* Ustawia ikonę na środku kontenera w pionie */
     transform: translateY(-50%); /* Przesuwa ikonę o połowę jej wysokości w górę, aby była dokładnie wyśrodkowana */
     pointer-events: none; /* Zapobiega interakcji z ikoną (kliknięcie, hover itp.) */
@@ -192,9 +192,9 @@ table.users-table {
     }
 }
 
-@media (min-width: 120px) {
-    div.search-bar i {
-        left: 115px;          /* Odstęp od lewej krawędzi kontenera */
+@media (min-width: 1200px) {
+    div.search-bar .searchIco {
+        left: 12%;          /* Odstęp od lewej krawędzi kontenera */
     }
 }
 

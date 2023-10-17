@@ -1,6 +1,7 @@
 import "./ManageThread.css"
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import {SearchBar} from "./SearchBar/SearchBar";
 
 
 export const ManageThread = ({user}) => {
@@ -8,24 +9,57 @@ export const ManageThread = ({user}) => {
     const [threadList, setThreadList] = useState([])
     const [status, setStatus] = useState()
 
-    // console.log(user.user._id)
+
+    const [searchQuery, setSearchQuery] = useState('');
+    const [currentPage, setCurrentPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
+
+    const pages = new Array(totalPages).fill(null).map((v, i) => i)
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
+    // useEffect(() => {
+    //     const fetchDataFromBack = async () => {
+    //         fetch('http://localhost:5000/api/homepage')
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 console.log(data.data)
+    //                 console.log(data)
+    //                 setThreadList(data.data);
+    //             })
+    //             .catch(error => {
+    //                 console.log(error);
+    //             });
+    //     }
+    //
+    //     fetchDataFromBack()
+    // }, []);
 
     useEffect(() => {
-        const fetchDataFromBack = async () => {
-            fetch('http://localhost:5000/api/homepage')
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data.data)
-                    console.log(data)
-                    setThreadList(data.data);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        }
+        const URL = searchQuery ?
+            `http://localhost:5000/admin/thread-list/?q=${searchQuery}` :
+            `http://localhost:5000/admin/thread-list/?page=${currentPage}`;
 
-        fetchDataFromBack()
-    }, []);
+        const fetchData = async () => {
+            if (currentPage !== null) {
+                await fetch(URL)
+                    .then(response => response.json())
+                    .then(data => {
+                        setThreadList(data.threadsList);
+                        setCurrentPage(data.currentPage);
+                        setTotalPages(data.totalPages);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        };
+
+        fetchData();
+    }, [searchQuery, currentPage]);
+
 
     const deleteThread = (id, userID) => {
         fetch('http://localhost:5000/admin/delete-thread', {
@@ -53,15 +87,15 @@ export const ManageThread = ({user}) => {
 
     return (
         <section className="users-list">
-            <div className="search-bar">
-                <input type="text" placeholder="Search by thread title"></input>
-                    <i className="fa-solid fa-search"></i>
-                    <button className="submit">SEARCH</button>
-            </div>
+            <SearchBar
+                setThreadList={setThreadList}
+                threadList={threadList}
+                setSearchQuery={setSearchQuery}
+            />
             <div className="new-thread">
                 <button className="new-btn"><Link className="admin-thread-link" to='/admin/create-thread'>NEW THREAD </Link></button>
             </div>
-            {threadList && threadList.map(thread => (
+            {Array.isArray(threadList) && threadList.map(thread => (
             <div key={thread._id} className="list-of-users">
                 <div className="avatar">
                     <p>Thread image:</p>
@@ -98,7 +132,7 @@ export const ManageThread = ({user}) => {
                 </tr>
                 </thead>
                 <tbody>
-                {threadList && threadList.map(thread => (
+                {Array.isArray(threadList) && threadList.map(thread => (
                 <tr key={thread._id}>
                     <td><img src="./0f8b2870896edcde8f6149fe2733faaf.jpg" alt="User Avatar" className="avatar"></img></td>
                     <td>{thread.title}</td>
@@ -113,12 +147,12 @@ export const ManageThread = ({user}) => {
                 </tbody>
             </table>
 
-            <div class="pagination">
-                <a href="#">1</a>
-                <a href="#" className="active">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
+            <div className="pagination">
+                {!searchQuery && pages.map((pageIndex) => (
+                    <a key={pageIndex + 1} onClick={() => handlePageChange(pageIndex + 1)}>
+                        {pageIndex + 1}
+                    </a>
+                ))}
             </div>
 
         </section>

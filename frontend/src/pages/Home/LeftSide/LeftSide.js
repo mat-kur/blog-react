@@ -65,6 +65,7 @@ export const LeftSide = props => {
                             <div className="activity">
                                 <p className="author"><i className="fa-regular fa-user"></i> {thread.author.username}</p>
                                 <p className="likes"><i className="fa-regular fa-heart"></i> {thread.likes ? thread.likes : 0}</p>
+
                             </div>
                         </section>
                     ))}
