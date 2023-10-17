@@ -1,5 +1,5 @@
 import "./ManageUsers.css";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {BanUser} from "./BanUser/BanUser";
 import {SetAdminPermissions} from "./SetAdminPermissions/SetAdminPermissions";
@@ -238,21 +238,16 @@ export const ManageUsers = ({user}) => {
                         </div>
                     </div>
                 </div>
-                // <div className="popup">
-                //     <button onClick={() => setPopupType(null)}>Close</button>
-                //     {popupType === 'admin' && <h2>{adminMessage}</h2>}
-                //     {popupType === 'ban' && <p>{banMessage}</p>}
-                //     {commonButtons}
-                // </div>
             )}
 
-            <div class="pagination">
-                <a href="#">1</a>
-                <a href="#" class="active">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
+            <div className="pagination">
+                {!searchQuery && pages.map((pageIndex) => (
+                    <a key={pageIndex + 1} onClick={() => handlePageChange(pageIndex + 1)}>
+                        {pageIndex + 1}
+                    </a>
+                ))}
             </div>
+
         </section>
     );
 };

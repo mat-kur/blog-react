@@ -4,6 +4,7 @@ const User = require("../../db/models/user-model");
 
 class ThreadList {
     async deleteThread(req, res) {
+
         const { id, userID } = req.body;
         const user = await User.findById(userID)
 
@@ -18,6 +19,7 @@ class ThreadList {
         } else {
             res.status(403).json({ message: 'Brak uprawnień administracyjnych.' });
         }
+
     }
 }
 

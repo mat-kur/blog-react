@@ -15,6 +15,7 @@ import {Register} from "./pages/Register/Register";
 import {useEffect, useState} from "react";
 import {Auth} from "./PrivateRoute/PrivateRoute";
 import {AuthLogInUser} from "./PrivateRoute/LogInRedirect";
+import {ReportHistory} from "./pages/Admin/ReportSystem/ReportHistory/ReportHistory";
 
 
 function App() {
@@ -70,8 +71,12 @@ function App() {
                             </Auth>}/>
                         <Route path="report-system" element={
                             <Auth user={user}>
-                                <ReportSystem/>
+                                <ReportSystem user={user}/>
                             </Auth>}/>
+                    <Route path="reports-history" element={
+                        <Auth user={user}>
+                            <ReportHistory user={user}/>
+                        </Auth>}/>
                 </Route>
             </Routes>
             {!isAdminRoute && <Footer/>}

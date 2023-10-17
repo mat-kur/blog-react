@@ -148,7 +148,8 @@ class ReportedComment {
                     .populate([
                         {path: 'author', select: 'username avatar'},
                         {path: 'rejectedBy', select: 'username avatar'}
-                    ]);
+                    ])
+                .limit(4)
                 if (!filteredReports) this.sendResponse(res, 404, 'Document not found');
                 res.json(filteredReports)
 
@@ -163,7 +164,8 @@ class ReportedComment {
                     .populate([
                         {path: 'author', select: 'username avatar'},
                         {path: 'rejectedBy', select: 'username avatar'}
-                    ]);
+                    ])
+                    .limit(4)
                 if (!filteredReports) this.sendResponse(res, 404, 'Document not found');
                 res.json(filteredReports)
 
@@ -177,7 +179,8 @@ class ReportedComment {
                     .populate([
                         {path: 'author', select: 'username avatar'},
                         {path: 'rejectedBy', select: 'username avatar'}
-                    ]);
+                    ])
+                    .limit(4)
                 if (!reportedComments) this.sendResponse(res, 404, 'Document not found');
                 res.json(reportedComments)
             } catch (e) {

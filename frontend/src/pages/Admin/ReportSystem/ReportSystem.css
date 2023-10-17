@@ -10,6 +10,15 @@ section.report-system {
     margin: 10px;
 }
 
+div .report-history {
+    color: white;
+    margin: 5px 10px;
+    padding: 5px;
+    text-decoration: none;
+    border: 1px solid #61dafb;
+    background-color: #007BFF;
+}
+
 div.search-bar input {
     width: 70%;
     min-height: 40px;
@@ -19,12 +28,13 @@ div.search-bar input {
     background-color: transparent;
     color: rgb(196, 196, 196);
     border: 1px solid rgb(196, 196, 196);
+    margin-top: 15px;
 }
 
 div.search-bar i {
     position: absolute; /* Pozycjonuje ikonę względem kontenera .search-bar */
     left: 20px; /* Odstęp od lewej krawędzi kontenera */
-    top: 50%; /* Ustawia ikonę na środku kontenera w pionie */
+    top: 58%; /* Ustawia ikonę na środku kontenera w pionie */
     transform: translateY(-50%); /* Przesuwa ikonę o połowę jej wysokości w górę, aby była dokładnie wyśrodkowana */
     pointer-events: none; /* Zapobiega interakcji z ikoną (kliknięcie, hover itp.) */
 }
@@ -106,13 +116,23 @@ div.search-bar button {
 
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
 
-    div.search-bar i {
-        left: 12%;
+    .reported-comment p {
+        display: block;
+        min-width: 800px;
     }
 
 }
+
+@media (min-width: 1200px) {
+
+    div.search-bar i {
+        left: 11%;
+    }
+
+}
+
 
 /*@media (min-width: 992px) {*/
 
