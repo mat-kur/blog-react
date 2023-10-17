@@ -16,6 +16,7 @@ import {useEffect, useState} from "react";
 import {Auth} from "./PrivateRoute/PrivateRoute";
 import {AuthLogInUser} from "./PrivateRoute/LogInRedirect";
 import {ReportHistory} from "./pages/Admin/ReportSystem/ReportHistory/ReportHistory";
+import UserProfile from "./pages/UserProfile/UserProfile";
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
                                user={user} />
                     </AuthLogInUser>}
                 />
+                <Route path="/user-profile/:id" element={<UserProfile setUser={setUser} user={user} />}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="admin/*" element={<AdminNavbarLayout/>}>
                         <Route path="create-thread" element={

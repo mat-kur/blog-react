@@ -1,0 +1,75 @@
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #5b5b5b; /* przykładowy kolor; zastąp kolorem z Twojego projektu */
+    border-radius: 5px;
+    background-color: rgb(31, 31, 31); /* przykładowy kolor; zastąp kolorem z Twojego projektu */
+    margin: 10px;
+
+}
+
+.user-profile-action {
+    margin-right: auto;
+}
+
+.user-profile-action button {
+    padding: 5px 10px;
+    border: none;
+    background-color: rgb(255, 218, 149);
+    color: #000000;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.user-info h2 {
+    margin-bottom: 10px;
+    color: #ff0000; /* przykładowy kolor; zastąp kolorem z Twojego projektu */
+}
+
+.user-info img {
+    max-width: 100px; /* przykładowy rozmiar; dostosuj do swoich potrzeb */
+    border-radius: 50%;
+}
+
+.user-comments {
+    flex: 2;
+}
+.user-info p {
+    margin: 5px 0;
+}
+
+.user-comments h3 {
+    margin: 20px 0;
+    color: #b7b7b7; /* przykładowy kolor; zastąp kolorem z Twojego projektu */
+}
+
+.span-userinfo {
+    font-weight: 700;
+}
+
+.comment {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #dedede; /* przykładowy kolor; zastąp kolorem z Twojego projektu */
+    border-radius: 3px;
+    background-color: rgb(43, 43, 43);
+}
+
+.comment p {
+    margin-bottom: 5px;
+    color: rgb(194, 194, 194) /* przykładowy kolor; zastąp kolorem z Twojego projektu */
+}
+
+.comment span {
+    font-size: 0.8em;
+    color: #d9d7d7; /* przykładowy kolor; zastąp kolorem z Twojego projektu */
+}
