@@ -1,0 +1,16 @@
+.buttons-container-reply {
+    display: flex;
+    flex-direction: row;
+    /*position: absolute;*/
+    /*top: 10px;*/
+    /*left: 15px;*/
+    margin-top: 10px;
+}
+
+.buttons-container-reply i {
+    margin-right: 10px;
+}
+
+.buttons-container-reply i:first-child {
+    margin-left: 10px;
+}

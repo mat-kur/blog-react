@@ -67,6 +67,57 @@ class UserComments {
         }
     }
 
+    async deleteReplyComment(req, res) {
+        const { commentID, replyID, userID } = req.body;
+
+        if (req.session.user._id === userID || req.session.user.isAdmin) {
+            try {
+                const comment = await Comment.findById(commentID);
+
+                if (!comment) {
+                    return res.status(404).json({ message: 'Document not found' });
+                }
+                comment.replies = comment.replies.filter(reply => reply.toString() !== replyID);
+                await comment.save();
+                await CommentReply.deleteOne({ _id: replyID });
+
+                res.status(200).json({ message: 'Document has beed deleted' });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Server error' });
+            }
+        } else {
+            res.status(403).json({ message: 'Brak uprawnień do wykonania tej operacji.' });
+        }
+    }
+
+
+    async userEditComment(req, res) {
+
+        const {commentID, userID, comment: commentDes, commentAuthorID} = req.body
+
+        if (commentAuthorID !== userID) {
+            return res.status(403).send('You have no admin acces.');
+        }
+
+        if (!commentID) {
+            return res.status(404).send('User comment not found');
+        }
+
+        if (commentAuthorID === userID) {
+
+            const comment = await Comment.findByIdAndUpdate(
+                commentID,
+                { description: commentDes },
+                { new: true }
+            );
+
+            return res.send(comment);
+        }
+
+
+    }
+
     async userReplyComment(req, res) {
 
         const {_id: id} = req.params

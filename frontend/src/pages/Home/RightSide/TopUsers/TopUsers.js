@@ -34,7 +34,7 @@ export const TopUsers = props => {
                             <div className="activity-user">
                                 <h4 className="title">{topUser.username}</h4>
                                 <p><i className="fa-solid fa-chart-line"></i> {topUser.commentNumber}</p>
-                                <p><i className="likesIcon fa-regular fa-heart"></i> 24</p>
+                                <p><i className="likesIcon fa-regular fa-heart"></i> {topUser.likes}</p>
                             </div>
                         </div>
                     </div>

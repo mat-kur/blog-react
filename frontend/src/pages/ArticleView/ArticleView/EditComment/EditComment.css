@@ -1,0 +1,66 @@
+/* Styl dla popupu */
+.edit-popup {
+    display: flex; /* Użyj flexbox do łatwego centrowania */
+    justify-content: center; /* Wyśrodkuj zawartość w poziomie */
+    align-items: center; /* Wyśrodkuj zawartość w pionie */
+    position: fixed; /* Pozycja będzie stała */
+    z-index: 1; /* Zawsze na wierzchu */
+    left: 0;
+    top: 0;
+    width: 100%; /* Pełna szerokość */
+    height: 100%; /* Pełna wysokość */
+    overflow: auto; /* W razie potrzeby umożliwia przewijanie */
+    background-color: rgba(0,0,0,0.4); /* Czarny z lekką przezroczystością */
+}
+
+.popup-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Może być dowolna szerokość */
+    max-width: 500px; /* Maksymalna szerokość */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Opcjonalny cień dla lepszego efektu wizualnego */
+}
+
+
+/* Styl dla elementu <textarea> */
+#commentText {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Styl dla przycisku "Wyślij" */
+#commentForm input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#commentForm input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Styl dla przycisku zamykającego popup */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

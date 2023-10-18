@@ -17,6 +17,7 @@ import {Auth} from "./PrivateRoute/PrivateRoute";
 import {AuthLogInUser} from "./PrivateRoute/LogInRedirect";
 import {ReportHistory} from "./pages/Admin/ReportSystem/ReportHistory/ReportHistory";
 import UserProfile from "./pages/UserProfile/UserProfile";
+import {UserEditProfile} from "./pages/UserProfile/UserEditProfile/UserEditProfile";
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
                                user={user} />
                     </AuthLogInUser>}
                 />
+                <Route path="/user-profile/edit/:id" element={<UserEditProfile setUser={setUser} user={user} />}/>
                 <Route path="/user-profile/:id" element={<UserProfile setUser={setUser} user={user} />}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="admin/*" element={<AdminNavbarLayout/>}>

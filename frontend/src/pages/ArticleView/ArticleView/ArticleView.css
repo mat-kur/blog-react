@@ -37,7 +37,7 @@ section.article-view, section.article-likes, section.form-comment, section.users
     margin-left: 10px;
 }
 
-.comment-reply div {
+.comment-reply div.reply-container {
     display: flex;
     flex-direction: column; /* Ustawia elementy w kolumnie */
     align-items: center; /* Wycentrowuje elementy w poziomie */
@@ -485,7 +485,7 @@ footer div.footer h3 span {
         padding: 30px;
     }
 
-    .comment-reply div {
+    .comment-reply {
         margin-right: 10px;
     }
 
@@ -570,4 +570,13 @@ div.article-activity p.border-test {
 
 .comment-activity-normal i {
     margin-right: 5px;
+}
+
+.desc-container {
+    position: relative;
+}
+
+
+.buttons-container-reply {
+    display: flex;
 }

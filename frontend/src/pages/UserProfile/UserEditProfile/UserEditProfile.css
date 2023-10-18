@@ -1,0 +1,67 @@
+.edit-profile-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #5b5b5b;
+    border-radius: 5px;
+    background-color: rgb(31, 31, 31);
+    color: #b7b7b7;
+}
+
+.edit-profile-container h2 {
+    margin-bottom: 20px;
+    color: #ff0000;
+}
+
+.test-userr {
+    width: 100%;
+    min-width: 500px;
+}
+
+.edit-profile-container form {
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="file"] {
+    padding: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    background-color: rgb(43, 43, 43);
+    color: rgb(194, 194, 194);
+}
+
+.input-group input[type="file"] {
+    padding: 10px 0;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 218, 149);
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: rgb(235, 198, 129);
+}
+
+input.username, input.email {
+    background-color: #706868;
+}

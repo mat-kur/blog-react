@@ -69,7 +69,41 @@
     color: rgb(194, 194, 194) /* przykładowy kolor; zastąp kolorem z Twojego projektu */
 }
 
+.user-edit-link {
+    color: #000000;
+    text-decoration: none;
+}
+
 .comment span {
     font-size: 0.8em;
     color: #d9d7d7; /* przykładowy kolor; zastąp kolorem z Twojego projektu */
+}
+
+
+@media (min-width: 768px) {
+
+    .user-profile {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    .user-info img {
+        width: 100px;
+        height: 100px;
+        margin-top: 5px;
+    }
+
+    .user-info h2 {
+        margin-top: 20px;
+    }
+
+    .user-info {
+        flex: 1;
+    }
+
+    .user-comments {
+        flex: 2;
+    }
+
 }

@@ -4,6 +4,7 @@ import {useParams} from "react-router";
 import {Link} from "react-router-dom";
 import {ReplyComment} from "../ReplyComment/ReplyComment";
 import {ReportComment} from "../ReportComment/ReportComment";
+import {EditComment} from "../EditComment/EditComment";
 
 
 
@@ -149,8 +150,6 @@ export const UsersComments = props => {
             {userComments.length > 0 ? (
                 userComments.map(userComment => (
                     <section key={userComment._id} className="users-comments">
-
-
                         <div className="wrapper-comments">
                             <div className="likes-activity">
                                 <p className="comment-likes">{userComment.likes === 0 ? null : `Likes: ${userComment.likes}`}</p>
@@ -158,8 +157,6 @@ export const UsersComments = props => {
                                     <i className="fa-regular fa-clock"></i> {userComment.date}
                                 </p>
                             </div>
-
-
                             <div className="top-comment">
                                 <div>
                                     <img src={`http://localhost:5000/avatars/${userComment.author.avatar}`}
@@ -169,23 +166,18 @@ export const UsersComments = props => {
                                 </div>
                                 <p className="content">{userComment.description}</p>
                             </div>
-
-
-
                             {userComment.reportContent &&
                                 <div className="admin-response">
                                     <a href="#">{userComment.reportApprover?.username}</a>
                                     <p>{userComment.reportContent}</p>
                                 </div>
                             }
-
-
                             <div className="comment-activity-normal">
                                 {user && user.user &&
                                     (user.user._id === userComment.author._id || user.user.isAdmin === 1)
                                     && (
                                         <>
-                                        <i className="fa-solid fa-pencil"></i>
+                                        <EditComment user ={user} userComment={userComment}/>
                                         <i onClick={() => userDeleteComment(userComment._id, userComment.author._id)} className="fa-solid fa-trash"></i>
                                         </>
                                     )}
@@ -211,7 +203,7 @@ export const UsersComments = props => {
                                 </div>
                             )}
                         </div>
-                        <ReplyComment commentID={userComment._id} userID={user.user?._id} userComments={userComments} />
+                        <ReplyComment commentID={userComment._id} userID={user.user?._id} userComments={userComments} setUserComments={setUserComments} commentAuthorID={userComment.author._id} />
                     </section>
                 ))
             ) : (
