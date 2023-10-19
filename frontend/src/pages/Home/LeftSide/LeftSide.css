@@ -169,7 +169,7 @@ div.activity .author, div.activity .likes {
 
 @media (min-width: 1200px) {
     section.left-side {
-        min-width: 850px;
+        min-width: 700px;
     }
 
 }

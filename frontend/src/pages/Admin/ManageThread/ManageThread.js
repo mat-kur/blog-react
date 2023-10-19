@@ -60,7 +60,6 @@ export const ManageThread = ({user}) => {
         fetchData();
     }, [searchQuery, currentPage]);
 
-
     const deleteThread = (id, userID) => {
         fetch('http://localhost:5000/admin/delete-thread', {
             method: 'POST',
@@ -99,7 +98,7 @@ export const ManageThread = ({user}) => {
             <div key={thread._id} className="list-of-users">
                 <div className="avatar">
                     <p>Thread image:</p>
-                    <img className="single-user-avatar" src="./0f8b2870896edcde8f6149fe2733faaf.jpg" alt=""></img>
+                    <img className="single-user-avatar" src={`http://localhost:5000/thread-image/${thread.image}`} alt=""></img>
                 </div>
                 <div className="email">
                     <p>Title: </p>
@@ -134,7 +133,7 @@ export const ManageThread = ({user}) => {
                 <tbody>
                 {Array.isArray(threadList) && threadList.map(thread => (
                 <tr key={thread._id}>
-                    <td><img src="./0f8b2870896edcde8f6149fe2733faaf.jpg" alt="User Avatar" className="avatar"></img></td>
+                    <td><img src={`http://localhost:5000/thread-image/${thread.image}`} alt="User Avatar" className="avatar"></img></td>
                     <td>{thread.title}</td>
                     <td>{thread._id}</td>
                     <td>{thread.author.username}</td>

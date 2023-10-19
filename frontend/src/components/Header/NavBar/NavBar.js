@@ -11,7 +11,7 @@ export const NavBar = ({user}) => {
             <ul className='mainNav'>
                 <li className='firstLi'><Link to='/'>Home</Link></li>
                 <li><a href="#">Forum</a></li>
-                <li><a href="#">About us</a></li>
+                <li><a href="#">About</a></li>
                 <li className={'user-name'}>
                     <Link to={`/user-profile/${user.user?.user?._id}`}>{user.user?.user?.username}</Link>
                 </li>
@@ -28,8 +28,15 @@ export const NavBar = ({user}) => {
                         }
                     </Link>
                 </li>
+                <li>
+                    <a href="#">
+                        <form className='form-search' action='#'>
+                            <input type='search' placeholder='Search here …' />
+                            <i className="fa fa-search"></i>
+                        </form>
+                    </a>
+                </li>
 
-                <li><a href=""><i className="fa-solid fa-magnifying-glass"></i></a></li>
             </ul>
             <div>
             </div>

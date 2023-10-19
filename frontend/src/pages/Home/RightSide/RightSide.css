@@ -5,6 +5,11 @@ div.posts-main {
     border-radius: 10px;
 }
 
+div.img-user {
+    max-width: 50px;
+    max-height: 50px;
+}
+
 div.newest-posts {
     border-radius: 10px;
     background-color: rgb(43, 43, 43);
@@ -14,6 +19,11 @@ div.newest-posts {
 
 div.newest-posts div.container {
     display: flex;
+}
+
+.title-link {
+    color: rgb(149, 197, 101);
+    text-decoration: none;
 }
 
 div.img img{
@@ -69,8 +79,8 @@ div.activity-user p {
 }
 
 .img-user img{
-    max-width: 30px;
-    max-height: 30px;
+    max-width: 50px;
+    max-height: 50px;
     border-radius: 50%;
 }
 
@@ -118,6 +128,7 @@ div.top-news p {
     div.img img{
         max-width: 50px;
         max-height: 50px;
+        border-radius: 50%;
     }
 
     div.news h4 {
@@ -212,8 +223,11 @@ div.top-news p {
         flex-direction: column;
     }
 
+    h4.title {
+        font-size: 16px;
+    }
     section.right-side {
-        max-width: 80%;
+        max-width: 520px;
     }
 
     main {

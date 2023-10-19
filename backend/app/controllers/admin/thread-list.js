@@ -37,6 +37,7 @@ class ThreadList {
                 threadsList = await Thread.find({
                     title: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
                 })
+                    .populate('author', 'username')
                     .select('-password -posts -email -commentNumber')
                     .sort({ _id: -1 })
                     .limit(perPage);
@@ -45,6 +46,7 @@ class ThreadList {
                 threadsList = await Thread.find({
                     title: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
                 })
+                    .populate('author', 'username')
                     .select('-password -posts -email -commentNumber')
                     .sort({ _id: -1 })
                     .skip((currentPage - 1) * perPage)

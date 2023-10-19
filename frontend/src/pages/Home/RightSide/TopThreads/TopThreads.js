@@ -29,7 +29,7 @@ export const TopThreads = props => {
                 topThread.map(thread => (
             <div key={thread._id} className="newest-posts">
                 <div className="container-activity">
-                    <div className="img-user">
+                    <div className='img'>
                         <img src={`http://localhost:5000/thread-image/${thread.image}`} alt="" />
                     </div>
                     <div className="top-news">

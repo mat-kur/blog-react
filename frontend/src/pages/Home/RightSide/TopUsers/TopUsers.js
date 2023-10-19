@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 
 export const TopUsers = props => {
@@ -31,10 +32,9 @@ export const TopUsers = props => {
                             <div className="img-user">
                                 <img className='img-user' src={`http://localhost:5000/avatars/${topUser.avatar}`}
                                      alt="User avatar"/>
-
                             </div>
                             <div className="activity-user">
-                                <h4 className="title">{topUser.username}</h4>
+                                <h4 className="title"><Link className="title-link" to={`/user-profile/${topUser._id}`}>{topUser.username}</Link></h4>
                                 <p><i className="fa-solid fa-chart-line"></i> {topUser.commentNumber}</p>
                                 <p><i className="likesIcon fa-regular fa-heart"></i> {topUser.likes}</p>
                             </div>
