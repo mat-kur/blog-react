@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 export const NewThreads = props => {
@@ -28,7 +28,7 @@ export const NewThreads = props => {
                 <div key={thread._id} className="newest-posts">
                     <div className="container">
                         <div className="img">
-                            <img src="./0f8b2870896edcde8f6149fe2733faaf.jpg" alt=""></img>
+                            <img src={`http://localhost:5000/thread-image/${thread.image}`} alt="" />
                         </div>
                         <div className="news">
                             <h4 className="title"><Link className='thread-link-right' to={`/article-view/${thread._id}`}>{thread.title}</Link></h4>

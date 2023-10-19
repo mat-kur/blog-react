@@ -68,7 +68,7 @@ div.activity-user p {
     margin: 0 10px;
 }
 
-.img-user {
+.img-user img{
     max-width: 30px;
     max-height: 30px;
     border-radius: 50%;
@@ -139,7 +139,7 @@ div.top-news p {
 
     }
 
-    .img-user {
+    .img-user img {
         max-width: 40px;
         max-height: 40px;
     }
@@ -250,6 +250,12 @@ div.top-news p {
         max-width: 60px;
         max-height: 60px;
 
+    }
+
+    .img-user img{
+        max-width: 50px;
+        max-height: 50px;
+        border-radius: 50%;
     }
 
 

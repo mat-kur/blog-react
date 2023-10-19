@@ -22,6 +22,17 @@ body {
 Header + nav bar
 */
 
+.fa-screwdriver-wrench {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.admin-panel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 main {
     flex: 1 0 auto;
 }

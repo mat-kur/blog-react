@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 export const TopUsers = props => {
@@ -29,7 +29,9 @@ export const TopUsers = props => {
                     <div key={topUser._id} className="newest-posts">
                         <div className="container-activity">
                             <div className="img-user">
-                                <img className="img-user" src="default-avatar.jpg" alt=""></img>
+                                <img className='img-user' src={`http://localhost:5000/avatars/${topUser.avatar}`}
+                                     alt="User avatar"/>
+
                             </div>
                             <div className="activity-user">
                                 <h4 className="title">{topUser.username}</h4>

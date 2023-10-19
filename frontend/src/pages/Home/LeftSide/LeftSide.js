@@ -40,6 +40,7 @@ export const LeftSide = props => {
         fetchThreads();
     }, [currentPage]);
 
+
     return (
         <div className="right-wrapper">
             {selectedTag ? (
@@ -48,7 +49,7 @@ export const LeftSide = props => {
                     {threads.map(thread => (
                         <section key={thread._id} className="left-side">
                             <div className="top">
-                                <img src="./0f8b2870896edcde8f6149fe2733faaf.jpg" alt="" />
+                                <img src={`http://localhost:5000/thread-image/${thread.image}`} alt="" />
                                 <h2><a href={`article-view/${thread._id}`}>{thread.title}</a></h2>
                             </div>
                             <div className="tags">
@@ -74,7 +75,7 @@ export const LeftSide = props => {
                 threads.map(thread => (
                     <section key={thread._id} className="left-side">
                         <div className="top">
-                            <img src="./0f8b2870896edcde8f6149fe2733faaf.jpg" alt="" />
+                            <img src={`http://localhost:5000/thread-image/${thread.image}`} alt="" />
                             <h2><a href={`article-view/${thread._id}`}>{thread.title}</a></h2>
                         </div>
                         <div className="tags">

@@ -14,13 +14,14 @@ const ReportedComment = require('../controllers/admin/reportedComment')
 const UsersActions = require('../controllers/admin/users-list')
 
 const upload = require('../services/upload-user-avatar')
+const threadImage = require('../services/upload-thread-image')
 
 
 
 //https://chromotypic.com/urfrfuc8if4o
 
 //admin routes
-router.post('/admin/create-thread', CreateThread.createThread)
+router.post('/admin/create-thread', threadImage.single('image'), CreateThread.createThread)
 router.post ('/admin/delete-thread', ThreadList.deleteThread)
 router.post ('/admin/edit-thread/:id', EditThread.editThread)
 // router.post ('/admin/edit-thread/:id', EditThread.editThread)

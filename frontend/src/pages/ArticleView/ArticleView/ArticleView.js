@@ -99,7 +99,7 @@ export const ArticleView = ({user}) => {
         <>
             <section className="article-view">
                 <div className="article-info">
-                    <img src="./0f8b2870896edcde8f6149fe2733faaf.jpg" alt=""></img>
+                    <img src={`http://localhost:5000/thread-image/${singleThreadData.image}`} alt="" />
                         <h3>{singleThreadData.title}</h3>
                 </div>
                 {singleThreadData.tags && singleThreadData.tags.length > 0 && (

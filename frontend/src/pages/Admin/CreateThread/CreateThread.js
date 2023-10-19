@@ -8,20 +8,28 @@ export const CreateThread = props => {
     const [description, setDescription] = useState('')
     const [tags, setTags] = useState([])
 
+    const [image, setImage] = useState(null);
+    const [responseMessage, setResponseMessage] = useState("");
+
     const [fetchsent, setFetchSent] = useState(null)
+
+    const handleImageChange = (event) => {
+        setImage(event.target.files[0]);
+    };
+
     const sendForm = e => {
+
+        const formData = new FormData();
+        formData.append("description", description);
+        formData.append("title", title);
+        formData.append("tags", tags);
+        formData.append("image", image);
+
         e.preventDefault()
         fetch('http://localhost:5000/admin/create-thread', {
             method: 'POST',
             credentials: "include",
-            body: JSON.stringify({
-                title,
-                description,
-                tags
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
+            body: formData,
         })
             .then((res) => res.json())
 
@@ -73,10 +81,6 @@ export const CreateThread = props => {
                             ></input>
                         </div>
                         <div className="input-group">
-                            <label htmlFor="image">Image:</label>
-                            <input type="file" id="image" name="image"></input>
-                        </div>
-                        <div className="input-group">
                             <label htmlFor="content">Content:</label>
                             <textarea
                                 id="content"
@@ -87,6 +91,16 @@ export const CreateThread = props => {
                                 required
                             >
                             </textarea>
+                        </div>
+                        <div className="input-group">
+                            <label htmlFor="image">Image</label>
+                            <input
+                                type="file"
+                                id="image"
+                                accept="image/*"
+                                name="image"
+                                onChange={handleImageChange}
+                            ></input>
                         </div>
                         <div className="input-group">
                             <button type="submit">Submit</button>

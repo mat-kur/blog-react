@@ -64,7 +64,7 @@ export const UserEditProfile = user => {
         <div className="test-userr">
             <div className="edit-profile-container">
                 <h2>Edit Profile</h2>
-                <form>
+                <form onSubmit={sendForm}>
                     <div className="input-group">
                         <label htmlFor="username">Username</label>
                         <input

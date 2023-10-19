@@ -35,6 +35,10 @@ const threadSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    image: {
+        type: String,
+        default: 'default-image.jpg'
+    }
 })
 
 

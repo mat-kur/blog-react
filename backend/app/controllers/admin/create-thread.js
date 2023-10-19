@@ -10,8 +10,8 @@ function getFullDate() {
 class CreateThread {
     async createThread (req, res) {
 
-
-        console.log(req.session.user)
+        console.log(req.body)
+        console.log(req.file)
         if (req.session.user.isAdmin) {
 
             const { tags } = req.body
@@ -23,7 +23,8 @@ class CreateThread {
                 likedBy: [],
                 likes: 0,
                 tags: tags.split(',').map(tag => tag.trim()),
-                date: getFullDate()
+                date: getFullDate(),
+                image: req.file?.filename,
             });
 
             try {
