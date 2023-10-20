@@ -1,10 +1,21 @@
 import {Link} from "react-router-dom";
 import {Logout} from "./Logout/Logout";
 import {SearchBar} from "./SearchBar/SearchBar";
+import {useState} from "react";
 
 
-export const NavBar = ({user, searchQuery, setSearchQuery, threads, setThreads}) => {
+export const NavBar = ({setSearchRecords, user, searchQuery, setSearchQuery, threads, setThreads}) => {
 
+    const [query, setQuery] = useState('');
+    const handleSearch = async () => {
+        console.log(query)
+        setSearchQuery(query);
+        const URL = `http://localhost:5000/api/homepage?q=test`;
+        const response = await fetch(URL);
+        const data = await response.json();
+        setSearchRecords(data);
+        console.log(threads)
+    };
     // console.log(user)
 
     return (
@@ -32,7 +43,19 @@ export const NavBar = ({user, searchQuery, setSearchQuery, threads, setThreads})
                     </div>
                 </li>
                 <li>
-                    <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} threads={threads} setThreads={setThreads}/>
+                    {/*<SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} threads={threads} setThreads={setThreads}/>*/}
+                    <SearchBar setSearchRecords={setSearchRecords} searchQuery={searchQuery} setSearchQuery={setSearchQuery} threads={threads} setThreads={setThreads}/>
+                    {/*<a href="#">*/}
+                    {/*    <form className='form-search' action='#'>*/}
+                    {/*        <input*/}
+                    {/*            type='search'*/}
+                    {/*            placeholder='Search here …'*/}
+                    {/*            value={query}*/}
+                    {/*            onChange={(e) => setQuery(e.target.value)}*/}
+                    {/*        />*/}
+                    {/*        <i onClick={handleSearch} className="fa fa-search"></i>*/}
+                    {/*    </form>*/}
+                    {/*</a>*/}
                 </li>
 
             </ul>

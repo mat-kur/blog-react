@@ -2,7 +2,7 @@ import "./LeftSide.css";
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 
-export const LeftSide = ({ searchQuery, setSearchQuery, threads, setThreads }) => {
+export const LeftSide = ({searchRecords, searchQuery, setSearchQuery, threads, setThreads }) => {
     const [selectedTag, setSelectedTag] = useState(null);
     // const [threads, setThreads] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -42,13 +42,16 @@ export const LeftSide = ({ searchQuery, setSearchQuery, threads, setThreads }) =
         fetchThreads();
     }, [searchQuery, currentPage]);
 
+    console.log(searchRecords)
 
     return (
         <div className="right-wrapper">
+            {searchRecords && searchRecords.data && searchRecords.data.length > 0 && <div className="search-records"><h1>Search records for {searchQuery}:</h1></div>}
+
             {selectedTag ? (
                 <>
                     <h2>Threads with tag: {selectedTag}</h2>
-                    {threads.map(thread => (
+                    {threads?.map(thread => (
                         <section key={thread._id} className="left-side">
                             <div className="top">
                                 <img src={`http://localhost:5000/thread-image/${thread.image}`} alt="" />
@@ -68,13 +71,12 @@ export const LeftSide = ({ searchQuery, setSearchQuery, threads, setThreads }) =
                             <div className="activity">
                                 <p className="author"><i className="fa-regular fa-user"></i> {thread.author.username}</p>
                                 <p className="likes"><i className="fa-regular fa-heart"></i> {thread.likes ? thread.likes : 0}</p>
-
                             </div>
                         </section>
                     ))}
                 </>
             ) : (
-                threads.map(thread => (
+                threads?.map(thread => (
                     <section key={thread._id} className="left-side">
                         <div className="top">
                             <img src={`http://localhost:5000/thread-image/${thread.image}`} alt="" />
@@ -105,5 +107,6 @@ export const LeftSide = ({ searchQuery, setSearchQuery, threads, setThreads }) =
                 ))}
             </div>
         </div>
+
     );
 };

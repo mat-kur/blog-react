@@ -27,6 +27,9 @@ function App() {
     const [user, setUser] = useState(null)
     const [searchQuery, setSearchQuery] = useState('');
     const [threads, setThreads] = useState([]);
+    const [searchRecords, setSearchRecords] = useState([]);
+
+    // console.log(searchQuery)
 
     useEffect(() => {
         // Pobranie informacji o zalogowanym użytkowniku po załadowaniu komponentu
@@ -45,9 +48,9 @@ function App() {
 
     return (
         <div className="App">
-            {!isAdminRoute && <Header setUser={setUser} user={user} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  threads={threads} setThreads={setThreads}/>}
+            {!isAdminRoute && <Header setSearchRecords={setSearchRecords} setUser={setUser} user={user} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  threads={threads} setThreads={setThreads}/>}
             <Routes>
-                <Route path="/" element={<Home setSearchQuery={setSearchQuery} searchQuery={searchQuery} threads={threads} setThreads={setThreads} />} exact/>
+                <Route path="/" element={<Home searchRecords={searchRecords} setSearchQuery={setSearchQuery} searchQuery={searchQuery} threads={threads} setThreads={setThreads} />} exact/>
                 <Route path="/article-view/:id" element={<ArticleView setUser={setUser} user={user} />}/>
                 <Route path="/login" element={
                     <AuthLogInUser user={user}>
