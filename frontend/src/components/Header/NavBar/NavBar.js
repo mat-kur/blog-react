@@ -20,6 +20,9 @@ export const NavBar = ({setSearchRecords, user, searchQuery, setSearchQuery, thr
 
     return (
         <nav>
+            <div className='burger-menu'>
+                <i className="fa-solid fa-bars"></i>
+            </div>
             <ul className='mainNav'>
                 <li className='firstLi'><Link to='/'>Home</Link></li>
                 <li><a href="#">Forum</a></li>

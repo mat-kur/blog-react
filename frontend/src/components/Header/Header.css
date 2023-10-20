@@ -120,7 +120,9 @@ header {
     flex-direction: column;
     padding: 10px;
     min-height: 100vh;
+    min-width: 150px;
     background-color: #000000;
+    z-index: 9999;
 }
 
 header h3 {
@@ -145,6 +147,11 @@ ul li a {
 
 ul li {
     margin-top: 20px;
+    text-decoration: none;;
+}
+
+ul {
+    list-style-type: none;
 }
 
 ul li.sign-in {
