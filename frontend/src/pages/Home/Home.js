@@ -6,11 +6,11 @@ import "./Home.css"
 import {LeftSide} from "./LeftSide/LeftSide";
 import {RightSide} from "./RightSide/RightSide";
 
-export const Home = props => {
+export const Home = ({ searchQuery, setSearchQuery, threads, setThreads }) => {
 
     return (
         <main>
-            <LeftSide/>
+            <LeftSide searchQuery={searchQuery} setSearchQuery={setSearchQuery} threads={threads} setThreads={setThreads}/>
             <RightSide/>
         </main>
     );

@@ -2,10 +2,9 @@ import "./LeftSide.css";
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 
-export const LeftSide = props => {
+export const LeftSide = ({ searchQuery, setSearchQuery, threads, setThreads }) => {
     const [selectedTag, setSelectedTag] = useState(null);
-
-    const [threads, setThreads] = useState([]);
+    // const [threads, setThreads] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 
@@ -25,9 +24,12 @@ export const LeftSide = props => {
     };
 
     useEffect(() => {
+        const URL = searchQuery ?
+            `http://localhost:5000/api/homepage?q=${searchQuery}` :
+            `http://localhost:5000/api/homepage?page=${currentPage}`;
         const fetchThreads = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/homepage?page=${currentPage}`);
+                const response = await fetch(URL);
                 const data = await response.json();
                 setThreads(data.data);
                 setCurrentPage(data.currentPage);
@@ -38,7 +40,7 @@ export const LeftSide = props => {
         };
 
         fetchThreads();
-    }, [currentPage]);
+    }, [searchQuery, currentPage]);
 
 
     return (

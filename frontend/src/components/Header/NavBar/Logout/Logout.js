@@ -2,6 +2,8 @@ import {Link} from "react-router-dom";
 
 export const Logout = props => {
 
+
+    const user = props
     const logOut = () => {
         const sendLogOutReq = async () => {
             fetch("http://localhost:5000/logout", {
@@ -22,7 +24,7 @@ export const Logout = props => {
 
     return (
         <div>
-            <button className={'btn-logout'}><a onClick={logOut} href="#">LogOut</a></button>
+            <button className={'btn-logout'}><a onClick={logOut} href="#"><i className="fa-solid fa-arrow-right-from-bracket"></i></a></button>
         </div>
     );
 }

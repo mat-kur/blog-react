@@ -20,23 +20,6 @@ export const ManageThread = ({user}) => {
         setCurrentPage(newPage);
     };
 
-    // useEffect(() => {
-    //     const fetchDataFromBack = async () => {
-    //         fetch('http://localhost:5000/api/homepage')
-    //             .then(response => response.json())
-    //             .then(data => {
-    //                 console.log(data.data)
-    //                 console.log(data)
-    //                 setThreadList(data.data);
-    //             })
-    //             .catch(error => {
-    //                 console.log(error);
-    //             });
-    //     }
-    //
-    //     fetchDataFromBack()
-    // }, []);
-
     useEffect(() => {
         const URL = searchQuery ?
             `http://localhost:5000/admin/thread-list/?q=${searchQuery}` :
@@ -83,6 +66,7 @@ export const ManageThread = ({user}) => {
                 console.log(err.message);
             });
     };
+
 
     return (
         <section className="users-list">

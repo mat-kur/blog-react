@@ -41,8 +41,11 @@ class CreateThread {
     }
 
     async getThreadFromDataBase(req, res) {
+        const query = req.query.q;
         const perPage = 5;
         const currentPage = parseInt(req.query.page) || 1;
+
+        console.log(query)
 
         try {
             const totalCount = await Thread.countDocuments();
@@ -51,12 +54,16 @@ class CreateThread {
             let data;
 
             if (currentPage === 1) {
-                data = await Thread.find()
+                data = await Thread.find({
+                    title: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
+                })
                     .populate('author', 'username')
                     .sort({ _id: -1 })
                     .limit(perPage);
             } else {
-                data = await Thread.find()
+                data = await Thread.find({
+                    title: new RegExp(query, 'i') // Wyszukiwanie nieczułe na wielkość liter
+                })
                     .populate('author', 'username')
                     .sort({ _id: -1 })
                     .skip((currentPage - 1) * perPage)

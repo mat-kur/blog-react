@@ -28,6 +28,8 @@ class ThreadList {
         const perPage = 4;
         const currentPage = parseInt(req.query.page) || 1;
 
+        console.log(query)
+
         try {
             let threadsList;
             const totalCount = await Thread.countDocuments();

@@ -32,7 +32,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;;
+    width: 100%;
     height: 42.5px;
     line-height: 30px;
     outline: 0;
@@ -76,7 +76,7 @@ i.fa-search {
 Header + nav bar
 */
 
-.fa-screwdriver-wrench {
+.fa-screwdriver-wrench, .fa-arrow-right-from-bracket {
     margin-left: 10px;
     font-size: 14px;
 }
@@ -87,8 +87,29 @@ Header + nav bar
     align-items: center;
 }
 
+.username-logout {
+    margin-left: 5px;
+    color: rgb(186, 246, 127);
+}
+
+.username-logout:hover {
+    border-bottom: 1px solid rgb(186, 246, 127);
+}
+
 main {
     flex: 1 0 auto;
+}
+
+.navbar-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-wrapper {
+    display: flex;
+
 }
 
 header {
@@ -183,7 +204,7 @@ ul {
     }
 
     nav ul li.sign-in {
-        padding: 2px 50px;
+        padding: 5px 20px;
     }
 
     nav ul li i {
@@ -192,7 +213,7 @@ ul {
 
     nav ul li.firstLi {
 
-        margin-left: 160px;
+        margin-left: 280px;
         color: #ffffff;
 
     }
