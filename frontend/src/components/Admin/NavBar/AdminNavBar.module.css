@@ -79,6 +79,11 @@
         color: rgb(186, 246, 127);
     }
 
+    .link-admin-site {
+        text-decoration: none;
+        color: #bb2f2f;
+    }
+
     .ulLiA {
         padding: 1px;
     }
@@ -119,4 +124,10 @@
         min-height: 100vh;
         background-color: #000000;
     }
+}
+
+.titleAdmin a {
+    margin-top: 10px;
+    text-decoration: none;
+    color: #ffffff;
 }

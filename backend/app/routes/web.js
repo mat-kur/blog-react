@@ -34,6 +34,11 @@ router.get ('/admin/thread-list/', ThreadList.sendThreadLists)
 router.post ('/admin/users-list/acces-admin/', UsersActions.setAdminRights)
 router.post ('/admin/users-list/ban-user', UsersActions.banUser)
 
+// admin dashboard
+router.get('/api/homepage/countthreads', CreateThread.countThreads)
+
+router.post ('/admin/users-list/ban-user', UsersActions.banUser)
+
 
 //http://localhost:5000/admin/users-list/
 

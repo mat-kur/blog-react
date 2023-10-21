@@ -16,6 +16,24 @@ body {
     margin: 0 auto;
 }
 
+.burger-menu {
+    display: flex;
+}
+
+.burger-menu i.fa-circle-xmark {
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 26px;
+}
+
+.burger-menu i.fa-bars {
+    position: fixed;
+    top: 13px;
+    right: 10px;
+    font-size: 26px;
+    z-index: 1;
+}
+
 .form-search {
     position: relative;
     /*transform: translate(-50%,-50%);*/
@@ -182,6 +200,10 @@ ul {
         padding: 10px 20px;
         margin-top: 30px;
         border-radius: 15px;
+    }
+
+    .burger-menu {
+        display: none;
     }
 
     header h3 {

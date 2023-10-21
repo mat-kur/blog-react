@@ -20,8 +20,8 @@ div .report-history {
 }
 
 div.search-bar input {
-    width: 70%;
-    min-height: 40px;
+    width: 100%;
+    min-height: 20px;
     border-radius: 10px;
     outline: transparent;
     padding-left: 30px;
@@ -31,20 +31,20 @@ div.search-bar input {
     margin-top: 15px;
 }
 
-div.search-bar i {
-    position: absolute; /* Pozycjonuje ikonę względem kontenera .search-bar */
-    left: 20px; /* Odstęp od lewej krawędzi kontenera */
-    top: 58%; /* Ustawia ikonę na środku kontenera w pionie */
-    transform: translateY(-50%); /* Przesuwa ikonę o połowę jej wysokości w górę, aby była dokładnie wyśrodkowana */
-    pointer-events: none; /* Zapobiega interakcji z ikoną (kliknięcie, hover itp.) */
-}
+/*div.search-bar i {*/
+/*    position: absolute; !* Pozycjonuje ikonę względem kontenera .search-bar *!*/
+/*    left: 20px; !* Odstęp od lewej krawędzi kontenera *!*/
+/*    top: 58%; !* Ustawia ikonę na środku kontenera w pionie *!*/
+/*    transform: translateY(-50%); !* Przesuwa ikonę o połowę jej wysokości w górę, aby była dokładnie wyśrodkowana *!*/
+/*    pointer-events: none; !* Zapobiega interakcji z ikoną (kliknięcie, hover itp.) *!*/
+/*}*/
 
 div.search-bar button {
     margin-left: 10px;
     background-color: transparent;
     color: rgb(196, 196, 196);;
     border: 1px solid rgb(196, 196, 196);
-    padding: 0 -20px;
+    padding: 0 20px;
     border-radius: 10px;
 }
 
@@ -100,21 +100,21 @@ div.search-bar button {
 }
 
 
-@media (min-width: 576px) {
+/*@media (min-width: 576px) {*/
 
-    div.search-bar i {
-        left: 10%;
-    }
+/*    div.search-bar i {*/
+/*        left: 10%;*/
+/*    }*/
 
-}
+/*}*/
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {*/
 
-    div.search-bar i {
-        left: 11%;
-    }
+/*    div.search-bar i {*/
+/*        left: 11%;*/
+/*    }*/
 
-}
+/*}*/
 
 @media (min-width: 992px) {
 
@@ -123,12 +123,27 @@ div.search-bar button {
         min-width: 800px;
     }
 
+    div.search-bar input {
+
+        min-width: 680px;
+    }
+
 }
 
 @media (min-width: 1200px) {
 
     div.search-bar i {
-        left: 11%;
+        margin-top: 50px;
+    }
+
+    div.search-bar input {
+
+        min-height: 35px;
+    }
+
+    div.search-bar button {
+        margin-top: 15px;
+        max-height: 35px;
     }
 
 }

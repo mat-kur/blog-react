@@ -1,5 +1,6 @@
 const Thread = require("../../db/models/create-thread");
 const User = require("../../db/models/user-model");
+const Comment = require("../../db/models/user-comment-model")
 
 
 function getFullDate() {
@@ -117,6 +118,31 @@ class CreateThread {
             res.json(data);
         } catch (error) {
             console.log(error);
+            res.status(500).send('Internal Server Error');
+        }
+    }
+
+    async countThreads(req, res) {
+
+        try {
+            const threadCount = await Thread.countDocuments()
+            const commentCount = await Comment.countDocuments()
+            const userCount = await User.countDocuments()
+            const threads = await Thread.find({});
+            const lastFiveThreads = await Thread.find({})
+                .sort({ _id: -1 }).
+                limit(5)
+            const lastFiveComments = await Comment.find({})
+                .sort({ _id: -1 })
+                .limit(5)
+                .populate('author', 'username')
+            if (!threads || !lastFiveThreads || !lastFiveComments) {
+                res.status(404).send('Document not found')
+            }
+            const totalLikesSummary = threads.reduce((total, thread) => total + thread.likes, 0);
+            res.json({lastFiveComments, lastFiveThreads,threadCount, commentCount, userCount,totalLikesSummary})
+        } catch (e) {
+            console.log(e);
             res.status(500).send('Internal Server Error');
         }
     }

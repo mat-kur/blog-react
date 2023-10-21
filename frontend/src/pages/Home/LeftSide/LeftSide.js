@@ -42,8 +42,6 @@ export const LeftSide = ({searchRecords, searchQuery, setSearchQuery, threads, s
         fetchThreads();
     }, [searchQuery, currentPage]);
 
-    console.log(searchRecords)
-
     return (
         <div className="right-wrapper">
             {searchRecords && searchRecords.data && searchRecords.data.length > 0 && <div className="search-records"><h1>Search records for {searchQuery}:</h1></div>}

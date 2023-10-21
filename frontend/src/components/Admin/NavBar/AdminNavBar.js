@@ -8,7 +8,7 @@ export const AdminNavBar = props => {
         <>
             <header className={styles.header}>
                 <h3 className={styles.titleAdmin}>
-                    <Link to={'/'}><span className={styles.titleAdminSpan}>c</span> CODERZ <span className={styles.titleAdminSpan}>/></span></Link>
+                    <Link className='link-admin-site' to={'/'}><span className='titleAdminSpan'></span> CODERZ <span className={styles.titleAdminSpan}></span></Link>
                 </h3>
                 <nav>
                     <ul className={styles.ul}>

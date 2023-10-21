@@ -24,7 +24,6 @@ export const SearchBar = ({usersList, setUsersList, setSearchQuery}) => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             ></input>
-            <i className="searchIco fa-solid fa-search"></i>
             <button onClick={handleSearch} className="submit">SEARCH</button>
         </div>
     );

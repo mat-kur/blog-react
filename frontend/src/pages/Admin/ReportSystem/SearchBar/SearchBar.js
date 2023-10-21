@@ -22,7 +22,6 @@ export const SearchBar = ({setReportData, setSearchQuery}) => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             ></input>
-            <i className="fa-solid fa-search"></i>
             <button onClick={handleSearch} className="submit">SEARCH</button>
         </div>
     );
