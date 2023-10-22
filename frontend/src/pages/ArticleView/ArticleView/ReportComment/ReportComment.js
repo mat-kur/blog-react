@@ -7,10 +7,13 @@ export const ReportComment = ({commentID, userID, userComments, authorOfComment}
 
     const { id } = useParams()
 
+
+    const [popup, setPopup] = useState(false)
     const [activeForms, setActiveForms] = useState({})
     const [reason, setReason] = useState('')
 
     const reportUser = (commentID) => {
+        setPopup(true)
         setActiveForms(prevState => ({
             ...prevState,
             [commentID]: !prevState[commentID]
@@ -34,6 +37,7 @@ export const ReportComment = ({commentID, userID, userComments, authorOfComment}
         })
             .then(async (response) => {
                 console.log(response)
+                setPopup(false)
             })
             .catch((err) => {
                 console.log(err.message);
@@ -47,14 +51,22 @@ export const ReportComment = ({commentID, userID, userComments, authorOfComment}
         <>
             <i className="fa-solid fa-flag" onClick={() => reportUser(commentID)}></i>
             {activeForms[commentID] && (
-                <div>
-                    <form>
-                        <textarea name="reply"
-                                  value={reason}
-                                  onChange={e => setReason(e.target.value)}></textarea>
-                        <button onClick={() => sendUserReportToBackend(commentID, userID)}>send</button>
-                    </form>
-                </div>
+                popup && (
+                    <div id="editPopup" className="edit-popup">
+                        <div className="popup-content">
+                            <span onClick={() => setPopup(false)} id="closePopup" className="close">&times;</span>
+                        <textarea
+                            id="commentText"
+                            name="comment"
+                            placeholder="Edit your comment"
+                            required
+                            value={reason}
+                            onChange={e => setReason(e.target.value)}>
+                        </textarea>
+                                <input className='send-report-btn' onClick={() => sendUserReportToBackend(commentID, userID)} type="submit" value="Send"/>
+                        </div>
+                    </div>
+                )
             )}
         </>
     );

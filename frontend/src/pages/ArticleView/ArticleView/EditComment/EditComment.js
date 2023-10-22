@@ -60,7 +60,7 @@ export const EditComment = ({userComment, user}) => {
                             value={comment}
                             onChange={e => setComment(e.target.value)}>
                         </textarea>
-                            <input type="submit" value="Wyślij"/>
+                            <input type="submit" value="Edit"/>
                         </form>
                     </div>
                 </div>

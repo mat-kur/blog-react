@@ -15,6 +15,7 @@ export const UsersComments = props => {
     const [comment, setComment,] = useState('')
     const [commentReply, setCommentReply] = useState('')
 
+    const [popup, setPopup] = useState(false)
     const [activeForms, setActiveForms] = useState({})
     const {userComments, user, setUserComments, totalPages, currentPage, setCurrentPage, topComment} = props
 
@@ -111,15 +112,6 @@ export const UsersComments = props => {
             });
     };
 
-    const activeFormReply = async commentID => {
-        setActiveForms(prevState => ({
-            ...prevState,
-            [commentID]: !prevState[commentID]
-        }));
-
-        console.log('test')
-    };
-
     const sendCommentReplyToBackend = async (commentID, userID, e) => {
 
         await fetch(`http://localhost:5000/article-view/user-reply-comment/${id}`, {
@@ -135,6 +127,7 @@ export const UsersComments = props => {
             },
         })
             .then(async (response) => {
+                setPopup(false)
                 console.log(response)
             })
             .catch((err) => {
@@ -143,6 +136,16 @@ export const UsersComments = props => {
 
 
     }
+
+    const activeFormReply = async commentID => {
+        setPopup(true)
+        setActiveForms(prevState => ({
+            ...prevState,
+            [commentID]: !prevState[commentID]
+        }));
+
+        console.log('test')
+    };
 
     return (
         <>
@@ -186,6 +189,7 @@ export const UsersComments = props => {
                                     (
                                         <>
                                             <i className="replyIcon fa-solid fa-reply" onClick={() => activeFormReply(userComment._id)}></i>
+                                            {/*<ReplyComment commentID={userComment._id}/>*/}
                                             <ReportComment commentID={userComment._id} userID={user.user._id} userComments={userComments} authorOfComment={userComment.author.username} />
                                             <i onClick={() => handleCommentLike(userComment._id, userComment.author._id, user.user._id)} className={userComment.likedBy.includes(user.user._id) ? "heart-liked-comment fa-solid fa-heart" : "non-liked-comment fa-solid fa-heart"}></i>
                                         </>
@@ -193,17 +197,25 @@ export const UsersComments = props => {
                                 }
                             </div>
                             {activeForms[userComment._id] && (
-                                <div>
-                                    <form>
-                                                         <textarea name="reply"
-                                                                   value={commentReply}
-                                                                   onChange={e => setCommentReply(e.target.value)}></textarea>
-                                        <button onClick={() => sendCommentReplyToBackend(userComment._id, user.user._id)}>send</button>
-                                    </form>
-                                </div>
+                                popup && (
+                                    <div id="editPopup" className="edit-popup">
+                                        <div className="popup-content">
+                                            <span onClick={() => setPopup(false)} id="closePopup" className="close">&times;</span>
+                                            <textarea
+                                                id="commentText"
+                                                name="comment"
+                                                placeholder="Reply to comment"
+                                                required
+                                                value={commentReply}
+                                                onChange={e => setCommentReply(e.target.value)}>
+                                            </textarea>
+                                            <input className='send-report-btn' onClick={() => sendCommentReplyToBackend(userComment._id, user.user._id)} type="submit" value="Send"/>
+                                        </div>
+                                    </div>
+                                )
                             )}
                         </div>
-                        <ReplyComment commentID={userComment._id} userID={user.user?._id} userComments={userComments} setUserComments={setUserComments} commentAuthorID={userComment.author._id} />
+                        <ReplyComment popup={popup} setPopup={setPopup} commentID={userComment._id} userID={user.user?._id} userComments={userComments} setUserComments={setUserComments} commentAuthorID={userComment.author._id} />
                     </section>
                 ))
             ) : (

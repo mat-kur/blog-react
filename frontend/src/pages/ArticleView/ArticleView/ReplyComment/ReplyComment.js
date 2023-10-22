@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 
 import "./ReplyComment.css";
 
-export const ReplyComment = ({commentID, userID, userComments, setUserComments, commentAuthorID}) => {
+export const ReplyComment = ({popup, setPopup, commentID, userID, userComments, setUserComments, commentAuthorID}) => {
 
     const [activeForms, setActiveForms] = useState({})
     const [commentReply, setCommentReply] = useState('')
@@ -42,6 +42,8 @@ export const ReplyComment = ({commentID, userID, userComments, setUserComments, 
 
     const sendCommentReplyToBackend = async (commentID, userID, e) => {
 
+
+
         await fetch(`http://localhost:5000/article-view/user-reply-comment/${id}`, {
             method: 'POST',
             credentials: "include",
@@ -56,6 +58,7 @@ export const ReplyComment = ({commentID, userID, userComments, setUserComments, 
         })
             .then(async (response) => {
                 console.log(response)
+                setPopup(false)
             })
             .catch((err) => {
                 console.log(err.message);
@@ -98,6 +101,16 @@ export const ReplyComment = ({commentID, userID, userComments, setUserComments, 
         }
     };
 
+    const activeFormReply = async commentID => {
+        setPopup(true)
+        setActiveForms(prevState => ({
+            ...prevState,
+            [commentID]: !prevState[commentID]
+        }));
+
+        console.log('test')
+    };
+
     // console.log(userID)
 
 
@@ -120,16 +133,23 @@ export const ReplyComment = ({commentID, userID, userComments, setUserComments, 
                     </div>
                 </div>
             ))}
-
             {activeForms[commentID] && (
-                <div>
-                    <form>
-                        <textarea name="reply"
-                                  value={commentReply}
-                                  onChange={e => setCommentReply(e.target.value)}></textarea>
-                        <button onClick={() => sendCommentReplyToBackend(commentID, userID)}>send</button>
-                    </form>
-                </div>
+                popup && (
+                    <div id="editPopup" className="edit-popup">
+                        <div className="popup-content">
+                            <span onClick={() => setPopup(false)} id="closePopup" className="close">&times;</span>
+                            <textarea
+                                id="commentText"
+                                name="comment"
+                                placeholder="Edit your comment"
+                                required
+                                value={commentReply}
+                                onChange={e => setCommentReply(e.target.value)}>
+                        </textarea>
+                            <input className='send-report-btn' onClick={() => sendCommentReplyToBackend(commentID, userID)} type="submit" value="Send"/>
+                        </div>
+                    </div>
+                )
             )}
         </>
     );

@@ -1,5 +1,6 @@
 import "./CreateThread.css"
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 
 export const CreateThread = props => {
@@ -54,7 +55,7 @@ export const CreateThread = props => {
             <section className="create-thread">
                 <h1>Create new thread</h1>
                 <div className="manage-threads">
-                    <button className="mng-threads">THREAD LIST</button>
+                    <button className="mng-threads"><Link className="link" to='/admin/manage-thread'>THREAD LIST</Link></button>
                 </div>
                 <div className="thread-form-container">
                     <form onSubmit={sendForm} method="POST">

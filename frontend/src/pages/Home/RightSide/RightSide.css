@@ -29,6 +29,8 @@ div.newest-posts div.container {
 div.img img{
     max-width: 30px;
     max-height: 30px;
+    min-width: 30px;
+    min-height: 30px;
     border-radius: 50%;
 }
 
@@ -266,9 +268,22 @@ div.top-news p {
 
     }
 
+    div.img-user {
+        display: flex;
+    }
+
     .img-user img{
+        min-width: 50px;
+        min-height: 50px;
+        border-radius: 50%;
+        /*margin-left: auto;*/
+    }
+
+    div.img img{
         max-width: 50px;
         max-height: 50px;
+        min-width: 50px;
+        min-height: 50px;
         border-radius: 50%;
     }
 

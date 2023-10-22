@@ -81,6 +81,12 @@ section.form-comment div.form form {
     display: flex;
 }
 
+.form-group img {
+    min-width: 40px;
+    min-height: 40px;
+}
+
+
 section.form-comment div.form form textarea {
 
     outline: transparent;
@@ -228,6 +234,8 @@ div.likes-activity p.comment-likes {
 section.users-comments div.top-comment img, section.users-comments-top div.top-comment img, .comment-reply img {
     margin-top: 5px;
     max-width: 40px;
+    min-width: 40px;
+    min-height: 40px;
     max-height: 40px;
     border-radius: 50%;
 }
@@ -297,6 +305,8 @@ div.article-info img {
 
     max-width: 40px;
     max-height: 40px;
+    min-height: 40px;
+    min-width: 40px;
     border-radius: 50%;
     margin-right: 20px;
 
@@ -431,6 +441,8 @@ footer div.footer h3 span {
 
     section.users-comments div.top-comment img, section.users-comments-top div.top-comment img, .comment-reply img {
         max-width: 50px;
+        min-width: 50px;
+        min-height: 50px;
         max-height: 50px;
     }
 
@@ -506,6 +518,8 @@ footer div.footer h3 span {
     div.article-info img {
         max-width: 60px;
         max-height: 60px;
+        min-height: 60px;
+        min-width: 60px;
         margin-bottom: 10px;
     }
 
@@ -532,6 +546,14 @@ footer div.footer h3 span {
     div.article-content {
         padding: 20px;
     }
+
+    .form-group img {
+        min-width: 50px;
+        min-height: 50px;
+        max-height: 50px;
+        max-width: 50px;
+    }
+
 
 }
 

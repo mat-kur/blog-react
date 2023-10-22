@@ -77,8 +77,6 @@ export const Dashboard = props => {
                     <div className="comments-container">
                         <a href={`/user-profile/${comment.author._id}`}>{comment.author.username}</a>
                         <div className="comment-content-container">
-                            {/*<a className="thread-link"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A est*/}
-                            {/*    nostrum odio saepe voluptates voluptatibus!</a>*/}
                             <p className="comment-content">{comment.description}</p>
                         </div>
                     </div>
