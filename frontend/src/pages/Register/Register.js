@@ -1,5 +1,6 @@
 import "./Register.css";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 
 export const Register = props => {
@@ -83,7 +84,7 @@ export const Register = props => {
                 </div>
 
                 <button type="submit" className="login-btn">Login</button>
-                <a href="#" className="Login">Login panel</a>
+                <Link to="/login" className="Login">Login panel</Link>
             </form>
         </div>
     </div>

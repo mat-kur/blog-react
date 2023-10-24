@@ -1,7 +1,7 @@
 import "./Login.css";
 
 import React, {useState, useEffect} from "react";
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 export const Login = ({setUser, user}) => {
 
@@ -86,7 +86,7 @@ export const Login = ({setUser, user}) => {
                         ></input>
                     </div>
                     <button type="submit" className="login-btn">Login</button>
-                    <a href="#" className="register-link">Register</a>
+                    <Link to="/register" className="register-link">Register</Link>
                 </form>
             </div>
         </div>

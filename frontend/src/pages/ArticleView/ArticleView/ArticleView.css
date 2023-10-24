@@ -274,7 +274,6 @@ section.users-comments div.top-comment p, section.users-comments-top div.top-com
 
 section.users-comments p.date-clock, section.users-comments-top p.date-clock {
     margin-left: auto;
-    /*margin: 5px*/
 }
 
 section.users-comments p.date-clock i, section.users-comments-top p.date-clock i {

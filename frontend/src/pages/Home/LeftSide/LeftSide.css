@@ -61,6 +61,12 @@ div.tags a {
     border-radius: 10px;
 }
 
+div.tags a:hover {
+
+    background-color: rgb(54, 54, 54);
+    cursor: pointer;
+}
+
 div.content {
     display: flex;
     flex-direction: column;
@@ -87,6 +93,11 @@ div.content button {
     border: 1px solid rgb(101, 101, 101);
     background-color: transparent;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+div.content button:hover {
+    background-color: rgb(54, 54, 54);
 }
 
 div.activity {

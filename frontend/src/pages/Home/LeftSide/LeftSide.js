@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 
 export const LeftSide = ({searchRecords, searchQuery, setSearchQuery, threads, setThreads }) => {
     const [selectedTag, setSelectedTag] = useState(null);
-    // const [threads, setThreads] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 

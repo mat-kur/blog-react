@@ -34,7 +34,7 @@ const UserProfile = ({user}) => {
             {singleUser &&
                 <div className="user-profile">
                     {
-                        singleUser._id === user.user._id && (
+                        singleUser._id === user.user?._id && (
                             <div className="user-profile-action">
                                 <button className="edit-profile"><Link className="user-edit-link" to={`/user-profile/edit/${user.user._id}`}>EDIT</Link></button>
                             </div>
